@@ -1,103 +1,82 @@
 {% extends "base.html" %}
 {% set active_page = "plugins" %}
-
-{% block title %}
-Plugins
-{% endblock %}
-
-{% block styles %}
-  {{ super() }}
-  <style>
-  .tooltip {
-    position: relative;
-    display: inline-block;
-  }
-  .tooltip .tooltiptext {
-    visibility: hidden;
-    width: 200px;
-    background-color: #3388cc;
-    color: #fff;
-    text-align: center;
-    border-radius: 10px;
-    border: 2px solid black;
-    padding: 20px 0;
-
-    position: absolute;
-    z-index: 1;
-    top: 100%;
-    left: 50%;
-    margin-left: -100px;
-  }
-
-  .tooltip:hover .tooltiptext {
-    visibility: visible;
-  }
-
-  </style>
-{% endblock %}
-
-{% block script %}
-$(function(){
-    $('input[type=checkbox]').change(function(e) {
-          var checkbox = $(this);
-          var form = checkbox.closest('form');
-          var url = form.attr('action');
-
-          $.ajax({
-             type: 'POST',
-             url: url,
-             data: form.serialize(),
-             success: function(data) {
-                  if( data.indexOf('failed') != -1 ) {
-                      alert('Could not be toggled.');
-                  }
-            }
-        });
-    });
-    $('input[type=submit]').change(function(e) {
-          var button = $(this);
-          var form = button.closest('form');
-          var url = form.attr('action');
-
-          $.ajax({
-             type: 'POST',
-             url: url,
-             data: form.serialize(),
-             success: function(data) {
-                  if( data.indexOf('failed') != -1 ) {
-                      alert('Could not be upgraded.');
-                  }
-            }
-        });
-    });
-});
-{% endblock %}
+{% block title %}Plugins{% endblock %}
+{% block styles %}{{ super() }}{% endblock %}
+{% block script %}{% endblock %}
 {% block content %}
 <div id="container">
-    {% for name in database.keys() | sort %}
-        {% set has_info = name in loaded and loaded[name].__description__ is defined %}
-        <div class="plugins-box">
-            <div class="tooltip">
-                <h4>
-                    <a {% if name in loaded and loaded[name].on_webhook is defined %} href="/plugins/{{name}}" {% endif %}>{{name}}</a>
-                </h4>
-                {% if has_info %}
-                    <span class="tooltiptext">{{ loaded[name].__description__ }}</span>
-                {% else %}
-                    <span class="tooltiptext">Description can't be loaded yet.</span>
-                {% endif %}
-            </div>
-            <form method="POST" action="/plugins/toggle">
-                <input type="checkbox" data-role="flipswitch" name="enabled" id="flip-checkbox-{{name}}" data-on-text="Enabled" data-off-text="Disabled" data-wrapper-class="custom-size-flipswitch" {% if name in loaded %} checked {% endif %}>
-                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
-                <input type="hidden" name="plugin" value="{{ name }}"/>
-            </form>
-            <form method="POST" action="/plugins/upgrade">
-                <input type="submit" name="upgrade" value="Upgrade">
-                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
-                <input type="hidden" name="plugin" value="{{ name }}"/>
-            </form>
-        </div>
-    {% endfor %}
+  {% for name in database.keys() | sort %} {% set has_info = name in loaded and
+  loaded[name].__description__ is defined %}
+  <div class="plugins-box">
+    <div class="tooltip">
+      <h4
+        style="margin: 0; margin-bottom: 0.5rem; font-family: var(--font-pixel)"
+      >
+        {% if name in loaded and loaded[name].on_webhook is defined %}
+        <a href="/plugins/{{ name | urlencode }}">{{ name }}</a>
+        {% else %}{{ name }}{% endif %}
+      </h4>
+      {% if has_info %}
+      <span class="tooltiptext">{{ loaded[name].__description__ }}</span>
+      {% else %}
+      <span class="tooltiptext">Description unable to load yet.</span>
+      {% endif %}
+    </div>
+    <div
+      style="
+        margin-top: 1rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      "
+    >
+      <form
+        method="POST"
+        action="/plugins/toggle"
+        style="
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 0.5rem;
+        "
+      >
+        <label class="switch">
+          <input
+            type="checkbox"
+            name="enabled"
+            id="flip-checkbox-{{name}}"
+            {%
+            if
+            name
+            in
+            loaded
+            %}
+            checked
+            {%
+            endif
+            %}
+          />
+          <span class="slider"></span>
+        </label>
+        <span>{{ "Enabled" if name in loaded else "Disabled" }}</span>
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
+        <input type="hidden" name="plugin" value="{{ name }}" />
+      </form>
+      <form method="POST" action="/plugins/upgrade">
+        <button
+          type="submit"
+          name="upgrade"
+          class="btn btn-primary"
+          style="width: 100%"
+        >
+          Upgrade
+        </button>
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
+        <input type="hidden" name="plugin" value="{{ name }}" />
+      </form>
+    </div>
+  </div>
+  {% endfor %}
 </div>
 {% endblock %}
+{% block scripts %}{{ super() }}<script src="/js/plugins.js"></script>{% endblock %}
