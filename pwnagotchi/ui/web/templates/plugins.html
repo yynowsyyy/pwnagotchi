@@ -1,17 +1,12 @@
-{% extends "base.html" %}
-{% set active_page = "plugins" %}
-{% block title %}Plugins{% endblock %}
-{% block styles %}{{ super() }}{% endblock %}
-{% block script %}{% endblock %}
-{% block content %}
+{% extends "base.html" %} {% set active_page = "plugins" %} {% block
+title%}Plugins{% endblock %} {% block styles %}{{ super() }}{% endblock %} {%
+block script %}{% endblock %} {% block content %}
 <div id="container">
   {% for name in database.keys() | sort %} {% set has_info = name in loaded and
   loaded[name].__description__ is defined %}
   <div class="plugins-box">
     <div class="tooltip">
-      <h4
-        style="margin: 0; margin-bottom: 0.5rem; font-family: var(--font-pixel)"
-      >
+      <h4>
         {% if name in loaded and loaded[name].on_webhook is defined %}
         <a href="/plugins/{{ name | urlencode }}">{{ name }}</a>
         {% else %}{{ name }}{% endif %}
@@ -22,24 +17,8 @@
       <span class="tooltiptext">Description unable to load yet.</span>
       {% endif %}
     </div>
-    <div
-      style="
-        margin-top: 1rem;
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-      "
-    >
-      <form
-        method="POST"
-        action="/plugins/toggle"
-        style="
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          gap: 0.5rem;
-        "
-      >
+    <div>
+      <form method="POST" action="/plugins/toggle" class="plugin-toggle">
         <label class="switch">
           <input
             type="checkbox"
@@ -58,7 +37,6 @@
           />
           <span class="slider"></span>
         </label>
-        <span>{{ "Enabled" if name in loaded else "Disabled" }}</span>
         <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
         <input type="hidden" name="plugin" value="{{ name }}" />
       </form>
@@ -66,10 +44,9 @@
         <button
           type="submit"
           name="upgrade"
-          class="btn btn-primary"
-          style="width: 100%"
+          class="btn btn-primary plugin-upgrade-btn"
         >
-          Upgrade
+          Upgrade Plugin
         </button>
         <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
         <input type="hidden" name="plugin" value="{{ name }}" />
@@ -78,5 +55,6 @@
   </div>
   {% endfor %}
 </div>
+{% endblock %} {% block scripts %}{{ super() }}
+<script src="/js/plugins.js"></script>
 {% endblock %}
-{% block scripts %}{{ super() }}<script src="/js/plugins.js"></script>{% endblock %}

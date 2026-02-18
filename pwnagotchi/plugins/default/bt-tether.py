@@ -21,53 +21,165 @@ TEMPLATE = """
 {% block styles %}
 {{ super() }}
     <style>
+        /* BT-Tether Header */
+        .bt-tether-header {
+            margin-bottom: 2rem;
+            padding: 1.5rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .bt-tether-header h2 {
+            margin: 0 0 0.5rem 0;
+            color: var(--accent);
+            font-family: var(--font-pixel);
+            font-size: 1.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .bt-tether-header p {
+            margin: 0;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Search Bar */
         #searchText {
             width: 100%;
+            padding: 12px 16px;
+            margin-bottom: 1.5rem;
+            background-color: #1a1a1a;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            color: var(--text-main);
+            font-family: var(--font-main);
+            font-size: 0.95rem;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
         }
+
+        #searchText:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 15px rgba(76, 175, 80, 0.1);
+            background-color: #1e1e1e;
+        }
+
+        /* Table Container */
+        .table-container {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+        }
+
         table {
             table-layout: auto;
             width: 100%;
-        }
-        table, th, td {
-            border: 1px solid;
             border-collapse: collapse;
+            background-color: var(--card-bg);
         }
-        th, td {
-            padding: 15px;
+
+        thead {
+            background: linear-gradient(to bottom, rgba(76, 175, 80, 0.15), rgba(76, 175, 80, 0.05));
+        }
+
+        th {
+            padding: 14px 16px;
             text-align: left;
+            color: var(--accent);
+            font-weight: 600;
+            font-family: var(--font-pixel);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-size: 0.85rem;
+            border-bottom: 2px solid var(--border-color);
         }
-        @media screen and (max-width:700px) {
+
+        td {
+            padding: 12px 16px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-body);
+            font-size: 0.9rem;
+        }
+
+        tbody tr:hover {
+            background-color: rgba(76, 175, 80, 0.05);
+            transition: background-color 0.2s ease;
+        }
+
+        tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Responsive Mobile Design */
+        @media screen and (max-width: 768px) {
+            th, td {
+                padding: 10px 12px;
+                font-size: 0.85rem;
+            }
+
+            #searchText {
+                font-size: 0.9rem;
+                padding: 10px 14px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .bt-tether-header h2 {
+                font-size: 1.4rem;
+            }
+
+            #searchText {
+                font-size: 0.85rem;
+                padding: 10px 12px;
+                margin-bottom: 1rem;
+            }
+
+            /* Mobile table display */
             table, tr, td {
-                padding:0;
-                border:1px solid;
+                padding: 0;
+                border: none;
             }
+
             table {
-                border:none;
+                border: none;
             }
+
             tr:first-child, thead, th {
-                display:none;
-                border:none;
+                display: none;
+                border: none;
             }
+
             tr {
                 float: left;
                 width: 100%;
-                margin-bottom: 2em;
+                margin-bottom: 1.5em;
+                border: 1px solid var(--border-color);
+                border-radius: 6px;
+                background-color: var(--card-bg);
+                padding: 1rem;
             }
+
             td {
                 float: left;
                 width: 100%;
-                padding:1em;
+                padding: 0.75em 0;
+                margin-bottom: 0.5em;
+                border: none;
             }
+
             td::before {
-                content:attr(data-label);
-                word-wrap: break-word;
-                color: white;
-                border-right:2px solid;
-                width: 20%;
-                float:left;
-                padding:1em;
-                font-weight: bold;
-                margin:-1em 1em -1em -1em;
+                content: attr(data-label);
+                display: block;
+                color: var(--accent);
+                font-weight: 600;
+                font-family: var(--font-pixel);
+                font-size: 0.8rem;
+                text-transform: uppercase;
+                margin-bottom: 0.25em;
+                letter-spacing: 0.5px;
             }
         }
     </style>
@@ -96,25 +208,36 @@ TEMPLATE = """
     }
 {% endblock %}
 {% block content %}
+    <div class="bt-tether-header">
+        <h2>Bluetooth Tether</h2>
+        <p>Configure Bluetooth tethering settings for your device</p>
+    </div>
+
     <input type="text" id="searchText" placeholder="Search for ..." title="Type in a filter">
-    <table id="tableOptions">
-        <tr>
-            <th>Item</th>
-            <th>Configuration</th>
-        </tr>
-        <tr>
-            <td data-label="bluetooth">Bluetooth</td>
-            <td>{{bluetooth|safe}}</td>
-        </tr>
-        <tr>
-            <td data-label="device">Device</td>
-            <td>{{device|safe}}</td>
-        </tr>
-        <tr>
-            <td data-label="connection">Connection</td>
-            <td>{{connection|safe}}</td>
-        </tr>
-    </table>
+    <div class="table-container">
+        <table id="tableOptions">
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Configuration</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td data-label="bluetooth">Bluetooth</td>
+                    <td>{{bluetooth|safe}}</td>
+                </tr>
+                <tr>
+                    <td data-label="device">Device</td>
+                    <td>{{device|safe}}</td>
+                </tr>
+                <tr>
+                    <td data-label="connection">Connection</td>
+                    <td>{{connection|safe}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 {% endblock %}
 """
 
@@ -139,7 +262,9 @@ class BTTether(plugins.Plugin):
     @staticmethod
     def exec_cmd(cmd, args, pattern=None):
         try:
-            result = subprocess.run([cmd] + args, check=True, capture_output=True, text=True)
+            result = subprocess.run(
+                [cmd] + args, check=True, capture_output=True, text=True
+            )
             if pattern:
                 return result.stdout.find(pattern)
             return result
@@ -158,22 +283,32 @@ class BTTether(plugins.Plugin):
         # Get bluetooth connections that contains the phone-name
         bt_connections = [
             connection.split(":")[0].strip()
-            for connection
-            in self.nmcli(["-t", "-f", "NAME,TYPE", "connection", "show"]).stdout.splitlines()
-            if connection.endswith(":bluetooth") and self.options["phone-name"] in connection
+            for connection in self.nmcli(
+                ["-t", "-f", "NAME,TYPE", "connection", "show"]
+            ).stdout.splitlines()
+            if connection.endswith(":bluetooth")
+            and self.options["phone-name"] in connection
         ]
 
         if len(bt_connections) == 1:
             return bt_connections[0]
-        
+
         if len(bt_connections) > 1:
             # Multiple matches found: check the MAC
             for bt_connection in bt_connections:
-                if self.nmcli(["-f", "bluetooth.bdaddr", "connection", "show", bt_connection], self.options["mac"].upper()) != -1:
+                if (
+                    self.nmcli(
+                        ["-f", "bluetooth.bdaddr", "connection", "show", bt_connection],
+                        self.options["mac"].upper(),
+                    )
+                    != -1
+                ):
                     return bt_connection
 
         # Fallback to the old logic
-        logging.error(f"[BT-Tether] Connection not found for {self.options['phone-name']}git")
+        logging.error(
+            f"[BT-Tether] Connection not found for {self.options['phone-name']}git"
+        )
         return self.options["phone-name"] + " Network"
 
     def on_loaded(self):
@@ -187,7 +322,10 @@ class BTTether(plugins.Plugin):
             logging.error("[BT-Tether] Error with mac address")
             return
 
-        if not ("phone" in self.options and self.options["phone"].lower() in ["android", "ios"]):
+        if not (
+            "phone" in self.options
+            and self.options["phone"].lower() in ["android", "ios"]
+        ):
             logging.error("[BT-Tether] Phone type not supported")
             return
         if self.options["phone"].lower() == "android":
@@ -215,25 +353,35 @@ class BTTether(plugins.Plugin):
             # Configure connection. Metric is set to 200 to prefer connection over USB
             self.nmcli(
                 [
-                    "connection", "modify", f"{self.phone_name}",
-                    "connection.type", "bluetooth",
-                    "bluetooth.type", "panu",
-                    "bluetooth.bdaddr", f"{self.mac}",
-                    "connection.autoconnect", "yes",
-                    "connection.autoconnect-retries", "0",
-                    "ipv4.method", "manual",
-                    "ipv4.dns", f"{dns}",
-                    "ipv4.addresses", f"{address}/24",
-                    "ipv4.gateway", f"{gateway}",
-                    "ipv4.route-metric", "200",
+                    "connection",
+                    "modify",
+                    f"{self.phone_name}",
+                    "connection.type",
+                    "bluetooth",
+                    "bluetooth.type",
+                    "panu",
+                    "bluetooth.bdaddr",
+                    f"{self.mac}",
+                    "connection.autoconnect",
+                    "yes",
+                    "connection.autoconnect-retries",
+                    "0",
+                    "ipv4.method",
+                    "manual",
+                    "ipv4.dns",
+                    f"{dns}",
+                    "ipv4.addresses",
+                    f"{address}/24",
+                    "ipv4.gateway",
+                    f"{gateway}",
+                    "ipv4.route-metric",
+                    "200",
                 ]
             )
             # Configure Device to autoconnect
-            self.nmcli([
-                "device", "set", f"{self.mac}",
-                "autoconnect", "yes",
-                "managed", "yes"
-            ])
+            self.nmcli(
+                ["device", "set", f"{self.mac}", "autoconnect", "yes", "managed", "yes"]
+            )
             self.nmcli(["connection", "reload"])
             self.ready = True
             logging.info(f"[BT-Tether] Connection {self.phone_name} configured")
@@ -286,7 +434,16 @@ class BTTether(plugins.Plugin):
             try:
                 # Checking connection
                 if (
-                    self.nmcli(["-w", "0", "-g", "GENERAL.STATE", "connection", "show", self.phone_name],
+                    self.nmcli(
+                        [
+                            "-w",
+                            "0",
+                            "-g",
+                            "GENERAL.STATE",
+                            "connection",
+                            "show",
+                            self.phone_name,
+                        ],
                         "activated",
                     )
                     != -1
@@ -334,7 +491,9 @@ class BTTether(plugins.Plugin):
                 device = "Error while checking nmcli device"
 
             try:
-                connection = self.nmcli(["-w", "0", "connection", "show", self.phone_name])
+                connection = self.nmcli(
+                    ["-w", "0", "connection", "show", self.phone_name]
+                )
                 connection = connection.stdout.replace("\n", "<br>")
             except Exception as e:
                 connection = "Error while checking nmcli connection"
