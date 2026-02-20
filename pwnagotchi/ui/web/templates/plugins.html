@@ -6,11 +6,25 @@ block script %}{% endblock %} {% block content %}
   loaded[name].__description__ is defined %}
   <div class="plugins-box">
     <div class="tooltip">
-      <h4>
-        {% if name in loaded and loaded[name].on_webhook is defined %}
-        <a href="/plugins/{{ name | urlencode }}">{{ name }}</a>
-        {% else %}{{ name }}{% endif %}
-      </h4>
+      <div class="plugin-header">
+        <h4>
+          {% if name in loaded and loaded[name].on_webhook is defined %}
+          <a href="/plugins/{{ name | urlencode }}">{{ name }}</a>
+          {% else %}{{ name }}{% endif %}
+        </h4>
+        {% if name in loaded and loaded[name].__version__ is defined %}
+        <span class="badge version">{{ loaded[name].__version__ }}</span>
+        {% endif %}
+      </div>
+      <div class="author">
+        {% if name in loaded and loaded[name].__author__ is defined %} {{
+        loaded[name].__author__ }} {% endif %}
+      </div>
+      <div class="plugin-badges">
+        {% if name in default_plugins %}
+        <span class="badge default">DEFAULT</span>
+        {% endif %}
+      </div>
       {% if has_info %}
       <span class="tooltiptext">{{ loaded[name].__description__ }}</span>
       {% else %}
@@ -44,7 +58,7 @@ block script %}{% endblock %} {% block content %}
         <button
           type="submit"
           name="upgrade"
-          class="btn btn-primary plugin-upgrade-btn"
+          class="btn primary plugin-upgrade-btn"
         >
           Upgrade Plugin
         </button>

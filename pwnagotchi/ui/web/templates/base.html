@@ -13,6 +13,13 @@
 
     {% block styles %}
     <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    {% if active_page == 'profile' %}
+    <link rel="stylesheet" type="text/css" href="/css/profile.css" />
+    {% elif active_page in ['inbox', 'new'] %}
+    <link rel="stylesheet" type="text/css" href="/css/inbox.css" />
+    {% elif active_page == 'plugins' %}
+    <link rel="stylesheet" type="text/css" href="/css/plugins.css" />
+    {% endif %}
     <link rel="apple-touch-icon" href="/images/pwnagotchi.png" />
     <link rel="icon" type="image/png" href="/images/pwnagotchi.png" />
     {% endblock %}

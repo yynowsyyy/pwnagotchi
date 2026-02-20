@@ -11,7 +11,7 @@ block content %}
         action="/shutdown"
         onsubmit="return confirm('This will halt the unit, continue?');"
       >
-        <button type="submit" class="btn btn-danger">Shutdown</button>
+        <button type="submit" class="btn danger">Shutdown</button>
         <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
       </form>
       <form
@@ -19,7 +19,7 @@ block content %}
         action="/reboot"
         onsubmit="return confirm('This will reboot the unit, continue?');"
       >
-        <button type="submit" class="btn btn-secondary">Reboot</button>
+        <button type="submit" class="btn secondary">Reboot</button>
         <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
       </form>
       <form
@@ -27,7 +27,7 @@ block content %}
         action="/restart"
         onsubmit="return confirm('This will restart the service in {{ other_mode }} mode, continue?');"
       >
-        <button type="submit" class="btn btn-primary">
+        <button type="submit" class="btn primary">
           Restart {{ other_mode }}
         </button>
         <input type="hidden" name="mode" value="{{ other_mode }}" />

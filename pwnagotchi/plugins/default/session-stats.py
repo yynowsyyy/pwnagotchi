@@ -127,11 +127,27 @@ TEMPLATE = """
             padding: 1rem;
             box-shadow: var(--shadow-md);
             transition: all 0.3s ease;
+            overflow-x: auto;
+            overflow-y: hidden;
         }
 
         div.chart:hover {
             border-color: var(--accent);
             box-shadow: 0 8px 25px rgba(76, 175, 80, 0.1);
+        }
+
+        div.chart canvas {
+            max-height: 250px;
+            display: block;
+            min-width: 100%;
+        }
+
+        .chart-hint {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-align: center;
+            margin-top: 0.5rem;
+            font-family: var(--font-main);
         }
 
         /* Responsive Design */
@@ -249,19 +265,31 @@ TEMPLATE = """
                 borderWidth: 2,
                 fill: true,
                 tension: 0.1,
-                pointRadius: 3,
-                pointHoverRadius: 6
+                pointRadius: 1,
+                pointHoverRadius: 4
             };
         });
 
-        const canvas = container.querySelector('canvas') || document.createElement('canvas');
-        if (!container.querySelector('canvas')) container.appendChild(canvas);
+        let canvas = container.querySelector('canvas');
+        if (!canvas) {
+            canvas = document.createElement('canvas');
+            container.appendChild(canvas);
+        }
+
+        // Calculate required width based on number of data points
+        const dataPointCount = labels.length;
+        const minPixelsPerPoint = 50; // minimum pixels for each data point
+        const calculatedWidth = Math.max(container.clientWidth, dataPointCount * minPixelsPerPoint);
+        
+        // Set canvas dimensions explicitly
+        canvas.width = calculatedWidth;
+        canvas.height = 250;
 
         charts[elementId] = new Chart(canvas, {
             type: 'line',
             data: { labels, datasets },
             options: {
-                responsive: true,
+                responsive: false,
                 maintainAspectRatio: false,
                 plugins: {
                     title: {
@@ -297,7 +325,8 @@ TEMPLATE = """
                         },
                         ticks: { 
                             color: '#fff',
-                            font: { family: 'var(--font-main)', size: 11, weight: 'bold' }
+                            font: { family: 'var(--font-main)', size: 11, weight: 'bold' },
+                            maxTicksLimit: 8
                         }
                     },
                     y: {
@@ -313,6 +342,14 @@ TEMPLATE = """
                 }
             }
         });
+
+        // Add hint text if it doesn't exist
+        if (!container.querySelector('.chart-hint')) {
+            const hint = document.createElement('div');
+            hint.className = 'chart-hint';
+            hint.textContent = 'Scroll left/right to view more data';
+            container.appendChild(hint);
+        }
     }
 
     function getChartColor(index) {
@@ -430,14 +467,16 @@ TEMPLATE = """
 
 
 class SessionStats(plugins.Plugin):
-    __author__ = "33197631+dadav@users.noreply.github.com"
+    __author__ = "33197631+dadav@users.noreply.github.com modified by wsvdmeer"
     __version__ = "0.2.0"
     __license__ = "GPL3"
     __description__ = (
         "Displays WiFi capture stats including networks, handshakes, and deauths."
     )
     DEFAULT_UPDATE_INTERVAL = 15  # RPi-friendly: 15 sec = 4 disk writes/min
-    DEFAULT_SAVE_PATH = "/home/pi/pwnagotchi/sessions/"  # Standard location for user data
+    DEFAULT_SAVE_PATH = (
+        "/home/pi/pwnagotchi/sessions/"  # Standard location for user data
+    )
 
     def __init__(self):
         self.lock = threading.Lock()
@@ -459,10 +498,8 @@ class SessionStats(plugins.Plugin):
             os.path.join(save_dir, self.session_name),
             data_format="json",
         )
-        
-        logging.info(
-            f"Session-stats plugin loaded. Saving to: {save_dir}"
-        )
+
+        logging.info(f"Session-stats plugin loaded. Saving to: {save_dir}")
 
         # Try to load historical data from the most recent previous session
         try:
@@ -477,8 +514,7 @@ class SessionStats(plugins.Plugin):
                 last_session_file = session_files[
                     -2
                 ]  # Second to last is the previous session
-                last_session_path = os.path.join(
-                    save_dir, last_session_file
+                last_session_path = os.path.join(save_dir, last_session_file)
                 last_session = StatusFile(last_session_path, data_format="json")
                 historical_data = last_session.data_field_or("data", default=dict())
                 if historical_data:
@@ -537,7 +573,9 @@ class SessionStats(plugins.Plugin):
 
     def _realtime_loop(self):
         """Background thread that collects stats periodically without waiting for epochs"""
-        update_interval = self.options.get("update_interval", self.DEFAULT_UPDATE_INTERVAL)
+        update_interval = self.options.get(
+            "update_interval", self.DEFAULT_UPDATE_INTERVAL
+        )
         agent_acquired = False
 
         while self.running:
