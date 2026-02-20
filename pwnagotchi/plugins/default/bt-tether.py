@@ -81,7 +81,7 @@ TEMPLATE = """
         }
 
         thead {
-            background: linear-gradient(to bottom, rgba(76, 175, 80, 0.15), rgba(76, 175, 80, 0.05));
+            background-color: var(--card-bg);
         }
 
         th {

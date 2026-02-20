@@ -1,5 +1,5 @@
 /* ============================================
-   Modern App Utilities (Replace jQuery)
+   Modern App Utilities
    ============================================ */
 
 // Format timestamps using Intl API
@@ -183,7 +183,7 @@ const toggleElement = (selector) => {
   }
 };
 
-// Show alert popup (replace jQuery popup)
+// Show alert popup
 const showAlert = (message, type = "error") => {
   const alertDiv = document.createElement("div");
   alertDiv.className = `alert alert-${type} p-2`;
