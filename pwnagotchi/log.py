@@ -55,6 +55,7 @@ class LastSession(object):
             with open(LAST_SESSION_FILE, 'rt') as fp:
                 saved = fp.read().strip()
         except Exception:  # FIX B4: was bare except, swallowed KeyboardInterrupt
+            saved = ''
         return saved
 
     def save_session_id(self):
