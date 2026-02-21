@@ -74,27 +74,11 @@ class Handler:
 
         # plugins
         plugins_with_auth = self.with_auth(self.plugins)
-        self._app.add_url_rule(
-            "/plugins",
-            "plugins",
-            plugins_with_auth,
-            strict_slashes=False,
-            defaults={"name": None, "subpath": None},
-        )
-        self._app.add_url_rule(
-            "/plugins/<name>",
-            "plugins",
-            plugins_with_auth,
-            strict_slashes=False,
-            methods=["GET", "POST"],
-            defaults={"subpath": None},
-        )
-        self._app.add_url_rule(
-            "/plugins/<name>/<path:subpath>",
-            "plugins",
-            plugins_with_auth,
-            methods=["GET", "POST"],
-        )
+        self._app.add_url_rule('/plugins', 'plugins', plugins_with_auth, strict_slashes=False,
+                               defaults={'name': None, 'subpath': None})
+        self._app.add_url_rule('/plugins/<name>', 'plugins', plugins_with_auth, strict_slashes=False,
+                               methods=['GET', 'POST'], defaults={'subpath': None})
+        self._app.add_url_rule('/plugins/<name>/<path:subpath>', 'plugins', plugins_with_auth, methods=['GET', 'POST'])
 
     def _check_creds(self, u, p):
         # trying to be timing attack safe
