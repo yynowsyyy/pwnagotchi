@@ -32,6 +32,9 @@ class Handler:
         self._agent = agent
         self._app = app
 
+        # Dynamic theme CSS route
+        self._app.add_url_rule("/css/theme.css", "dynamic_theme", self.dynamic_theme)
+
         self._app.add_url_rule("/", "index", self.with_auth(self.index))
         self._app.add_url_rule("/ui", "ui", self.with_auth(self.ui))
 
@@ -308,6 +311,17 @@ class Handler:
             )
         finally:
             _thread.start_new_thread(pwnagotchi.restart, (mode,))
+
+    # serve dynamic CSS with accent color from config
+    def dynamic_theme(self):
+        """Generate CSS accent RGB variables from config [ui.web.theme] section"""
+        # Get RGB values from already-loaded config, fallback to default green
+        r = self._config.get("theme", {}).get("accent_r", 76)
+        g = self._config.get("theme", {}).get("accent_g", 175)
+        b = self._config.get("theme", {}).get("accent_b", 80)
+
+        css = f":root {{\n  --accent: rgb({r}, {g}, {b});\n  --accent-r: {r};\n  --accent-g: {g};\n  --accent-b: {b};\n}}"
+        return Response(css, mimetype="text/css")
 
     # serve the PNG file with the display image
     def ui(self):
