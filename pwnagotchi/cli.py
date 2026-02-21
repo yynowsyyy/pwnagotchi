@@ -6,7 +6,6 @@ import sys
 import tomlkit
 import requests
 import os
-import re
 
 import pwnagotchi
 from pwnagotchi import utils
