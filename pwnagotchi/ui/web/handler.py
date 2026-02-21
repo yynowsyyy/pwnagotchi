@@ -1,7 +1,7 @@
 import logging
 import os
 import base64
-import _thread
+import threading  # FIX B5: replaced _thread with threading
 import secrets
 import json
 from functools import wraps
@@ -71,27 +71,11 @@ class Handler:
 
         # plugins
         plugins_with_auth = self.with_auth(self.plugins)
-        self._app.add_url_rule(
-            "/plugins",
-            "plugins",
-            plugins_with_auth,
-            strict_slashes=False,
-            defaults={"name": None, "subpath": None},
-        )
-        self._app.add_url_rule(
-            "/plugins/<name>",
-            "plugins",
-            plugins_with_auth,
-            strict_slashes=False,
-            methods=["GET", "POST"],
-            defaults={"subpath": None},
-        )
-        self._app.add_url_rule(
-            "/plugins/<name>/<path:subpath>",
-            "plugins",
-            plugins_with_auth,
-            methods=["GET", "POST"],
-        )
+        self._app.add_url_rule('/plugins', 'plugins', plugins_with_auth, strict_slashes=False,
+                               defaults={'name': None, 'subpath': None})
+        self._app.add_url_rule('/plugins/<n>', 'plugins', plugins_with_auth, strict_slashes=False,
+                               methods=['GET', 'POST'], defaults={'subpath': None})
+        self._app.add_url_rule('/plugins/<n>/<path:subpath>', 'plugins', plugins_with_auth, methods=['GET', 'POST'])
 
     def _check_creds(self, u, p):
         # trying to be timing attack safe
@@ -279,19 +263,17 @@ class Handler:
                 message="Shutting down ...",
             )
         finally:
-            _thread.start_new_thread(pwnagotchi.shutdown, ())
+            # FIX B5: replaced _thread.start_new_thread with threading.Thread
+            threading.Thread(target=pwnagotchi.shutdown, daemon=True).start()
 
     # serve a message and reboot the unit
     def reboot(self):
         try:
-            return render_template(
-                "status.html",
-                title=pwnagotchi.name(),
-                go_back_after=60,
-                message="Rebooting ...",
-            )
+            return render_template('status.html', title=pwnagotchi.name(), go_back_after=60,
+                                   message='Rebooting ...')
         finally:
-            _thread.start_new_thread(pwnagotchi.reboot, ())
+            # FIX B5: replaced _thread.start_new_thread with threading.Thread
+            threading.Thread(target=pwnagotchi.reboot, daemon=True).start()
 
     # serve a message and restart the unit in the other mode
     def restart(self):
@@ -307,7 +289,8 @@ class Handler:
                 message="Restarting in %s mode ..." % mode,
             )
         finally:
-            _thread.start_new_thread(pwnagotchi.restart, (mode,))
+            # FIX B5: replaced _thread.start_new_thread with threading.Thread
+            threading.Thread(target=pwnagotchi.restart, args=(mode,), daemon=True).start()
 
     # serve the PNG file with the display image
     def ui(self):

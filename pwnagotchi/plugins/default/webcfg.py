@@ -1,7 +1,7 @@
 import logging
 import json
 import toml
-import _thread
+import threading  # FIX B5: replaced _thread with threading
 import pwnagotchi
 from pwnagotchi import restart, plugins
 from pwnagotchi.utils import save_config, merge_config
@@ -756,10 +756,8 @@ class WebConfig(plugins.Plugin):
         elif request.method == "POST":
             if path == "save-config":
                 try:
-                    save_config(
-                        request.get_json(), "/etc/pwnagotchi/config.toml"
-                    )  # test
-                    _thread.start_new_thread(restart, (self.mode,))
+                    save_config(request.get_json(), '/etc/pwnagotchi/config.toml')  # test
+                    threading.Thread(target=restart, args=(self.mode,), daemon=True).start()  # FIX B5
                     return "success"
                 except Exception as ex:
                     logging.error(ex)
