@@ -126,25 +126,35 @@ class FixServices(plugins.Plugin):
     def on_bcap_sys_log(self, agent, event):
         if self.is_disabled:
             return
-        if re.search('wifi error while hopping to channel', event['data']['Message']):
-            logging.debug("[Fix_Services]SYSLOG MATCH: %s" % event['data']['Message'])
-            logging.debug("[Fix_Services]**** restarting wifi.recon")
-            try:
-                result = agent.run("wifi.recon off; wifi.recon on")
-                if result["success"]:
-                    logging.debug("[Fix_Services] wifi.recon flip: success!")
-                    if hasattr(agent, 'view'):
-                        display = agent.view()
-                        if display:
-                            display.update(force=True, new_data={"status": "Wifi recon flipped!", "face": faces.COOL})
-                    else:
-                        print("Wifi recon flipped")
+        message = event.get('data', {}).get('Message', '')
+        if not isinstance(message, str):
+            return
+        if 'wifi error while hopping to channel' not in message:
+            return
+        # Cooldown: don't spam recon flips when bettercap is unstable
+        if time.time() - self.LASTTRY < 30:
+            return
+        logging.debug("[Fix_Services]SYSLOG MATCH: %s" % message)
+        logging.debug("[Fix_Services]**** restarting wifi.recon")
+        try:
+            result = agent.run("wifi.recon off; wifi.recon on")
+            if result["success"]:
+                logging.debug("[Fix_Services] wifi.recon flip: success!")
+                self.LASTTRY = time.time()
+                if hasattr(agent, 'view'):
+                    display = agent.view()
+                    if display:
+                        display.update(force=True, new_data={"status": "Wifi recon flipped!", "face": faces.COOL})
                 else:
-                    logging.warning("[Fix_Services] wifi.recon flip: FAILED: %s" % repr(result))
-                    self._tryTurningItOffAndOnAgain(agent)
-            except Exception as err:
-                logging.error("[Fix_Services]SYSLOG wifi.recon flip fail: %s" % err)
+                    print("Wifi recon flipped")
+            else:
+                logging.warning("[Fix_Services] wifi.recon flip: FAILED: %s" % repr(result))
+                self.LASTTRY = time.time()
                 self._tryTurningItOffAndOnAgain(agent)
+        except Exception as err:
+            logging.error("[Fix_Services]SYSLOG wifi.recon flip fail: %s" % err)
+            self.LASTTRY = time.time()
+            self._tryTurningItOffAndOnAgain(agent)
 
     def on_epoch(self, agent, epoch, epoch_data):
         if self.is_disabled:
