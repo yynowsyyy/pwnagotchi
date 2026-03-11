@@ -146,7 +146,7 @@ class FixServices(plugins.Plugin):
                     if display:
                         display.update(force=True, new_data={"status": "Wifi recon flipped!", "face": faces.COOL})
                 else:
-                    print("Wifi recon flipped")
+                    logging.debug("Wifi recon flipped")
             else:
                 logging.warning("[Fix_Services] wifi.recon flip: FAILED: %s" % repr(result))
                 self.LASTTRY = time.time()
@@ -196,7 +196,7 @@ class FixServices(plugins.Plugin):
                             display.update(force=True, new_data={"status": "Wifi recon flipped!",
                                                                  "face": faces.COOL})
                         else:
-                            print("Wifi recon flipped\nthat was easy!")
+                            logging.debug("Wifi recon flipped")
                     else:
                         logging.warning("[Fix_Services] wifi.recon flip: FAILED: %s" % repr(result))
 
@@ -258,14 +258,14 @@ class FixServices(plugins.Plugin):
                             display.update(force=True, new_data={"status": "Wifi recon flipped!",
                                                                  "face": faces.COOL})
                         else:
-                            print("Wifi recon flipped\nthat was easy!")
+                            logging.debug("Wifi recon flipped")
                     else:
                         logging.warning("[Fix_Services] wifi.recon flip: FAILED: %s" % repr(result))
 
                 except Exception as err:
                     logging.error("[Fix_Services wifi.recon flip] %s" % repr(err))
             else:
-                print("logs look good")
+                logging.debug("[Fix_Services] logs look good")
 
     def logPrintView(self, level, message, ui=None, displayData=None, force=True):
         try:
@@ -281,9 +281,7 @@ class FixServices(plugins.Plugin):
             if ui:
                 ui.update(force=force, new_data=displayData)
             elif displayData and "status" in displayData:
-                print(displayData["status"])
-            else:
-                print("[%s] %s" % (level, message))
+                logging.debug(displayData["status"])
         except Exception as err:
             logging.error("[logPrintView] ERROR %s" % repr(err))
 
@@ -391,25 +389,17 @@ class FixServices(plugins.Plugin):
                                 logging.debug(
                                     "[Fix_Services set wifi.interface wlan0mon] except: %s" % repr(err))
                         except Exception as cerr:  #
-                            if not display:
-                                print("failed loading wlan0mon attempt #%s: %s" % (tries, repr(cerr)))
+                            logging.error("failed loading wlan0mon attempt #%s: %s" % (tries, repr(cerr)))
                     except Exception as err:  # from modprobe
-                        if not display:
-                            print("Failed reloading brcmfmac")
                         logging.error("[Fix_Services] Failed reloading brcmfmac %s" % repr(err))
 
                 except Exception as nope:  # from modprobe -r
                     # fails if already unloaded, so probably fine
                     logging.error("[Fix_Services #%s modprobe -r] %s" % (tries, repr(nope)))
-                    if not display:
-                        print("[Fix_Services #%s modprobe -r] %s" % (tries, repr(nope)))
-                    pass
 
                 tries = tries + 1
                 if tries < 3:
                     logging.debug("[Fix_Services] wlan0mon didn't make it. trying again")
-                    if not display:
-                        print(" wlan0mon didn't make it. trying again")
                 else:
                     logging.debug("[Fix_Services] wlan0mon loading failed, no choice but to reboot ..")
                     pwnagotchi.reboot()
@@ -420,7 +410,7 @@ class FixServices(plugins.Plugin):
                     display.update(force=True, new_data={"status": "And back on again...",
                                                          "face": faces.INTENSE})
                 else:
-                    print("And back on again...")
+                    logging.debug("And back on again...")
                 logging.debug("[Fix_Services] wlan0mon back up")
             else:
                 self.LASTTRY = time.time()
@@ -437,7 +427,7 @@ class FixServices(plugins.Plugin):
                         display.update(force=True, new_data={"status": "I can see again! (probably)",
                                                              "face": faces.HAPPY})
                     else:
-                        print("I can see again")
+                        logging.debug("I can see again")
                     logging.debug("[Fix_Services] wifi.recon on")
                     self.LASTTRY = time.time() + 120  # 2-minute pause until next time.
                 else:
