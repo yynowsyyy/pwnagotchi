@@ -136,7 +136,7 @@ class FixServices(plugins.Plugin):
         logging.debug("[Fix_Services]**** restarting wifi.recon")
         try:
             result = agent.run("wifi.recon off; wifi.recon on")
-            if result["success"]:
+            if result.get("success"):
                 logging.debug("[Fix_Services] wifi.recon flip: success!")
                 self.LASTTRY = time.time()
                 if hasattr(agent, 'view'):
@@ -188,7 +188,7 @@ class FixServices(plugins.Plugin):
 
                 try:
                     result = agent.run("wifi.recon off; wifi.recon on")
-                    if result["success"]:
+                    if result.get("success"):
                         logging.debug("[Fix_Services] wifi.recon flip: success!")
                         if display:
                             display.update(force=True, new_data={"status": "Wifi recon flipped!",
@@ -250,7 +250,7 @@ class FixServices(plugins.Plugin):
                 logging.debug("[Fix_Services] Monitor mode failed!")
                 try:
                     result = agent.run("wifi.recon off; wifi.recon on")
-                    if result["success"]:
+                    if result.get("success"):
                         logging.debug("[Fix_Services] wifi.recon flip: success!")
                         if display:
                             display.update(force=True, new_data={"status": "Wifi recon flipped!",
@@ -328,7 +328,7 @@ class FixServices(plugins.Plugin):
 
             try:
                 result = connection.run("wifi.recon off")
-                if "success" in result:
+                if result.get("success"):
                     self.logPrintView("info", "[Fix_Services] wifi.recon off: %s!" % repr(result),
                                       display, {"status": "Wifi recon paused!", "face": faces.COOL})
                     time.sleep(2)
@@ -378,7 +378,7 @@ class FixServices(plugins.Plugin):
                             try:
                                 # try accessing mon0 in bettercap
                                 result = connection.run("set wifi.interface wlan0mon")
-                                if "success" in result:
+                                if result.get("success"):
                                     logging.debug("[Fix_Services set wifi.interface wlan0mon worked!")
                                     # stop looping and get back to recon
                                     break
@@ -430,7 +430,7 @@ class FixServices(plugins.Plugin):
             try:
                 result = connection.run("wifi.clear; wifi.recon on")
 
-                if "success" in result:  # and result["success"] is True:
+                if result.get("success"):
                     if display:
                         display.update(force=True, new_data={"status": "I can see again! (probably)",
                                                              "face": faces.HAPPY})
