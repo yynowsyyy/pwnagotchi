@@ -105,8 +105,6 @@ class FixServices(plugins.Plugin):
     def on_ready(self, agent):
         if self.is_disabled:
             return
-        last_lines = ''.join(list(TextIOWrapper(subprocess.Popen(['journalctl', '-n10', '-k'],
-                                                                 stdout=subprocess.PIPE).stdout))[-10:])
         try:
             cmd_output = subprocess.check_output("ip link show wlan0mon", shell=True)
             logging.debug("[Fix_Services ip link show wlan0mon]: %s" % repr(cmd_output))
