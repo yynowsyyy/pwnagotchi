@@ -170,7 +170,7 @@ class FixServices(plugins.Plugin):
         logging.debug("[Fix_Services]**** epoch")
         if time.time() - self.LASTTRY > 180:
             # get last 10 lines
-            display = agent.view()
+            display = agent.view() if hasattr(agent, 'view') else None
 
             logging.debug("[Fix_Services]**** checking")
             if len(self.pattern.findall(last_lines)) >= 1:
