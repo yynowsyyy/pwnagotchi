@@ -235,7 +235,7 @@ class FixServices(plugins.Plugin):
                 if hasattr(agent, 'view'):
                     display.set('status', 'Restarting pwnagotchi!')
                     display.update(force=True)
-                os.system("systemctl restart bettercap")
+                subprocess.run(["systemctl", "restart", "bettercap"], timeout=30)
                 pwnagotchi.restart("AUTO")
 
             # Look for pattern 6
@@ -244,7 +244,7 @@ class FixServices(plugins.Plugin):
                 if hasattr(agent, 'view'):
                     display.set('status', 'Restarting pwnagotchi!')
                     display.update(force=True)
-                os.system("systemctl restart bettercap")
+                subprocess.run(["systemctl", "restart", "bettercap"], timeout=30)
                 pwnagotchi.restart("AUTO")
 
             # Look for pattern 7
