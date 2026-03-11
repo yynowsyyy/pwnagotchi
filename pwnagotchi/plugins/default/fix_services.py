@@ -386,7 +386,7 @@ class FixServices(plugins.Plugin):
                                     break
                                 else:
                                     logging.debug(
-                                        "[Fix_Services set wifi.interfaceface wlan0mon] failed? %s" % repr(result))
+                                        "[Fix_Services set wifi.interface wlan0mon] failed? %s" % repr(result))
                             except Exception as err:
                                 logging.debug(
                                     "[Fix_Services set wifi.interface wlan0mon] except: %s" % repr(err))
