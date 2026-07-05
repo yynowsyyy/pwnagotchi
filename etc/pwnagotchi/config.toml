@@ -422,10 +422,6 @@ github_repo = "git@github.com:yynowsyyy/pwnagotchi.git"
 
 
 
-[main.plugins.wiglelocator]
-enabled = true
-api_key = "QUlEYWFhNDc5ZTMwYTY2OGQyYzJmODY1MzcwZjNmZDg0MDM6MjZkODFlZjIxMmM4YmJlZDM0ZmJlOTk3MzlmMWFhMzc="
-
 [main.log]
 path = "/etc/pwnagotchi/log/pwnagotchi.log"
 path-debug = "/etc/pwnagotchi/log/pwnagotchi-debug.log"
@@ -562,3 +558,6 @@ sync = 3600
 zram = true
 rsync = true
 
+
+[main.plugins.wiglelocator]
+enabled = true
