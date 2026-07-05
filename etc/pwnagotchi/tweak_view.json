@@ -30,7 +30,7 @@
     "VSS.success_bar.xy": "70,100",
     "VSS.eta.xy": "10,88",
     "VSS.channel.xy": "0,0",
-    "VSS.aps.xy": "70,500",
+    "VSS.aps.xy": "70,70",
     "VSS.status.xy": "0,312",
     "VSS.face.font": "Small",
     "VSS.friend_name.xy": "55,72",

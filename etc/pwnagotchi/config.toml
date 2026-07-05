@@ -227,7 +227,7 @@ shutdown = 2
 enabled = true
 
 [main.plugins.webgpsmap]
-enabled = false
+enabled = true
 
 [main.plugins.wigle]
 enabled = true
@@ -245,7 +245,7 @@ api_url = "https://wpa-sec.stanev.org"
 download_results = true
 show_pwd = true
 single_files = true
-whitelist = ["44:4E:6D:B6:8E:AE", "44:4E:6D:B6:8E:AD", "B4:FC:7D:6D:30:24", "B4:FC:7D:6A:51:86", "Lucalina", "FRITZ!Box 7530 YX"]
+whitelist = ["B4:FC:7D:6A:51:86", "44:4E:6D:B6:8E:AE", "Lucalina", "B4:FC:7D:6D:30:24", "FRITZ!Box 7530 YX", "44:4E:6D:B6:8E:AD"]
 
 [main.plugins.bt-logger]
 enabled = false
@@ -434,6 +434,10 @@ github_repo = "git@github.com:yynowsyyy/pwnagotchi.git"
 enabled = true
 api_key = "QUlEYWFhNDc5ZTMwYTY2OGQyYzJmODY1MzcwZjNmZDg0MDM6MjZkODFlZjIxMmM4YmJlZDM0ZmJlOTk3MzlmMWFhMzc="
 
+[main.plugin.layout_tweaker]
+enabled = true
+
+
 [main.plugins.snoopr]
 enabled = false
 base_dir = "/root/snoopr"
@@ -487,6 +491,7 @@ opensky_password = ""
 #type = "polygon"
 #points = [[37.77, -122.42], [37.78, -122.41], [37.79, -122.43], [37.77, -122.42]]
 
+
 [main.log]
 path = "/etc/pwnagotchi/log/pwnagotchi.log"
 path-debug = "/etc/pwnagotchi/log/pwnagotchi-debug.log"
@@ -496,11 +501,12 @@ enabled = true
 size = "10M"
 
 
+
 [personality]
 advertise = true
 deauth = true
 associate = true
-channels = [6, 10, 8, 7, 9, 4, 3, 2, 1, 5, 11]
+channels = [9, 7, 3, 8, 10, 6, 11, 1, 5, 2, 4]
 min_rssi = -85.0
 ap_ttl = 30.0
 sta_ttl = 30.0
@@ -572,6 +578,7 @@ rotation = 0
 type = "dummydisplay"
 
 
+
 [bettercap]
 handshakes = "/home/pi/handshakes"
 silence = [
@@ -608,4 +615,3 @@ size = "10M"
 sync = 3600
 zram = true
 rsync = true
-

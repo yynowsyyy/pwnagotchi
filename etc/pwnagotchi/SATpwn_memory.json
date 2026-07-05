@@ -1,7 +1,7 @@
 {
   "plugin_metadata": {
     "current_mode": "auto",
-    "last_saved": 1783257585.513361,
+    "last_saved": 1783263706.3867214,
     "version": "88.0.5",
     "stationary_start": 1783245339.0712984,
     "plugin_enabled": true,
@@ -14,12 +14,12 @@
       "channel": 1,
       "clients": {
         "e0:91:53:b8:80:53": {
-          "last_seen": 1783257267.5656538,
-          "signal": -83,
-          "score": 16.999999894301098,
+          "last_seen": 1783262780.8966546,
+          "signal": -80,
+          "score": 19.99999985549185,
           "last_attempt": 1783245600.6826613,
           "last_success": 0,
-          "last_recalculated": 1783257267.5656538
+          "last_recalculated": 1783262780.8966546
         },
         "36:f3:35:f5:9b:53": {
           "last_seen": 1783245757.7493186,
@@ -30,35 +30,35 @@
           "last_recalculated": 1783245737.834118
         }
       },
-      "last_seen": 1783257576.6958725,
+      "last_seen": 1783263694.8979838,
       "handshakes": 2
     },
     "08:40:f3:8f:84:c4": {
       "ssid": "<hidden>",
       "channel": 3,
       "clients": {},
-      "last_seen": 1783257576.6958725,
+      "last_seen": 1783263694.8979838,
       "handshakes": 0
     },
     "08:40:f3:8f:84:c6": {
       "ssid": "Mittelbau_Sch\u00f6nherr_1",
       "channel": 3,
       "clients": {},
-      "last_seen": 1783257576.6958725,
+      "last_seen": 1783263694.8979838,
       "handshakes": 0
     },
     "60:32:b1:77:6c:70": {
       "ssid": "X",
       "channel": 6,
       "clients": {},
-      "last_seen": 1783257576.6958725,
+      "last_seen": 1783263694.8979838,
       "handshakes": 0
     },
     "b4:fc:7d:9f:94:ba": {
       "ssid": "FRITZ!Box 7490",
       "channel": 6,
       "clients": {},
-      "last_seen": 1783257576.6958725,
+      "last_seen": 1783263694.8979838,
       "handshakes": 0
     },
     "58:d9:d5:5e:d9:86": {
@@ -74,99 +74,117 @@
           "last_recalculated": 1783246095.2178433
         }
       },
-      "last_seen": 1783257576.6958725,
+      "last_seen": 1783263694.8979838,
       "handshakes": 1
     },
     "58:d9:d5:5e:d9:84": {
       "ssid": "<hidden>",
       "channel": 10,
       "clients": {},
-      "last_seen": 1783257576.6958725,
+      "last_seen": 1783263694.8979838,
       "handshakes": 0
     },
     "c8:0e:14:e9:9c:3c": {
       "ssid": "FRITZ!Box 7490",
-      "channel": 11,
+      "channel": 6,
       "clients": {
         "5c:47:5e:b0:62:c8": {
-          "last_seen": 1783255927.3251176,
-          "signal": -82,
-          "score": 17.99999749885665,
+          "last_seen": 1783263651.3215618,
+          "signal": -81,
+          "score": 18.999961225324206,
           "last_attempt": 1783245096.44953,
           "last_success": 0,
-          "last_recalculated": 1783255927.3251176
+          "last_recalculated": 1783263651.3215618
         },
         "e0:91:53:b8:80:53": {
-          "last_seen": 1783256320.0646448,
-          "signal": -87,
-          "score": 12.999998459418615,
+          "last_seen": 1783263487.8316343,
+          "signal": -84,
+          "score": 15.999999552965164,
           "last_attempt": 1783245096.44953,
           "last_success": 1783245527.3464627,
-          "last_recalculated": 1783256320.0646448
+          "last_recalculated": 1783263487.8316343
         },
         "ac:9f:c3:8d:11:4c": {
-          "last_seen": 1783245971.6608117,
-          "signal": -86,
-          "score": 13.999971643686294,
+          "last_seen": 1783261506.734845,
+          "signal": -99,
+          "score": 0.999999591641956,
           "last_attempt": 1783245096.44953,
           "last_success": 0,
-          "last_recalculated": 1783245971.6608117
+          "last_recalculated": 1783261506.734845
         },
         "20:ba:36:84:3e:cc": {
-          "last_seen": 1783257576.6958725,
+          "last_seen": 1783263694.8979838,
           "signal": -77,
-          "score": 22.999999741713207,
-          "last_attempt": 1783257534.3907533,
+          "score": 22.999999685022566,
+          "last_attempt": 1783263651.3215618,
           "last_success": 0,
-          "last_recalculated": 1783257576.6958725
+          "last_recalculated": 1783263694.8979838
         },
         "c0:f8:53:81:fd:92": {
-          "last_seen": 1783257311.0930347,
-          "signal": -87,
-          "score": 12.999999342229632,
+          "last_seen": 1783263694.8979838,
+          "signal": -89,
+          "score": 10.999999773899715,
           "last_attempt": 1783245096.44953,
           "last_success": 0,
-          "last_recalculated": 1783257311.0930347
+          "last_recalculated": 1783263694.8979838
         },
         "c0:f8:53:81:fa:ac": {
-          "last_seen": 1783257489.5686574,
-          "signal": -83,
-          "score": 16.999999765025244,
+          "last_seen": 1783261439.2230823,
+          "signal": -87,
+          "score": 12.9999996456835,
           "last_attempt": 0,
           "last_success": 0,
-          "last_recalculated": 1783257489.5686574
+          "last_recalculated": 1783261439.2230823
         },
         "c0:f8:53:81:fc:bc": {
-          "last_seen": 1783257360.2700279,
-          "signal": -89,
-          "score": 10.999999575614929,
+          "last_seen": 1783263651.3215618,
+          "signal": -84,
+          "score": 15.999999751117494,
           "last_attempt": 0,
           "last_success": 0,
-          "last_recalculated": 1783257360.2700279
+          "last_recalculated": 1783263651.3215618
         }
       },
-      "last_seen": 1783257576.6958725,
+      "last_seen": 1783263694.8979838,
       "handshakes": 2
     },
     "62:dc:81:c9:6d:08": {
       "ssid": "phi_601456CBA5C3",
       "channel": 11,
       "clients": {},
-      "last_seen": 1783257576.6958725,
+      "last_seen": 1783263040.393626,
       "handshakes": 0
     },
     "5c:fa:25:91:87:ce": {
       "ssid": "MagentaWLAN-BGRQ",
       "channel": 1,
-      "clients": {},
-      "last_seen": 1783257576.6958725,
-      "handshakes": 0
+      "clients": {
+        "b0:4a:39:d4:d8:cc": {
+          "last_seen": 1783260787.544847,
+          "signal": -94,
+          "score": 55.999999563694,
+          "last_attempt": 1783260787.544847,
+          "last_success": 1783260758.1276338,
+          "last_recalculated": 1783260787.544847
+        }
+      },
+      "last_seen": 1783263694.8979838,
+      "handshakes": 1
     },
     "30:d3:2d:7e:2e:58": {
       "ssid": "Wirtshaus 2",
       "channel": 11,
-      "clients": {},
-      "last_seen": 1783257161.1618273,
+      "clients": {
+        "e0:40:07:ad:36:39": {
+          "last_seen": 1783258950.004448,
+          "signal": -89,
+          "score": 10.999999751117494,
+          "last_attempt": 0,
+          "last_success": 0,
+          "last_recalculated": 1783258950.004448
+        }
+      },
+      "last_seen": 1783259339.2072947,
       "handshakes": 0
     },
     "2c:91:ab:b3:c0:47": {
@@ -180,23 +198,81 @@
           "last_attempt": 0,
           "last_success": 0,
           "last_recalculated": 1783254724.7698789
+        },
+        "ca:6c:c2:d5:fe:f1": {
+          "last_seen": 1783263487.8316343,
+          "signal": -86,
+          "score": 13.999999836815729,
+          "last_attempt": 0,
+          "last_success": 0,
+          "last_recalculated": 1783263487.8316343
+        },
+        "e0:40:07:ad:36:39": {
+          "last_seen": 1783261728.212376,
+          "signal": -76,
+          "score": 23.999999519454107,
+          "last_attempt": 1783261728.212376,
+          "last_success": 0,
+          "last_recalculated": 1783261728.212376
+        },
+        "ea:fd:e0:92:85:de": {
+          "last_seen": 1783262000.5507257,
+          "signal": -87,
+          "score": 62.99999974462721,
+          "last_attempt": 1783262000.5507257,
+          "last_success": 1783260649.8023634,
+          "last_recalculated": 1783262000.5507257
+        },
+        "22:a0:07:a4:ca:5a": {
+          "last_seen": 1783261916.9830863,
+          "signal": -83,
+          "score": 66.99999988396962,
+          "last_attempt": 1783261916.9830863,
+          "last_success": 1783261777.9901357,
+          "last_recalculated": 1783261916.9830863
+        },
+        "b2:d6:62:4b:cb:10": {
+          "last_seen": 1783260052.058919,
+          "signal": -83,
+          "score": 16.999999702241684,
+          "last_attempt": 0,
+          "last_success": 0,
+          "last_recalculated": 1783260052.058919
         }
       },
-      "last_seen": 1783256924.406906,
-      "handshakes": 0
+      "last_seen": 1783263487.8316343,
+      "handshakes": 2
     },
     "14:9d:09:1f:98:b8": {
       "ssid": "gigacube-98B8",
-      "channel": 5,
-      "clients": {},
-      "last_seen": 1783245997.9772308,
-      "handshakes": 0
+      "channel": 4,
+      "clients": {
+        "5a:56:7a:ae:5b:24": {
+          "last_seen": 1783259211.5843072,
+          "signal": -94,
+          "score": 55.99156012548341,
+          "last_attempt": 0,
+          "last_success": 1783259226.7760065,
+          "last_recalculated": 1783259211.5843072
+        }
+      },
+      "last_seen": 1783262934.7644665,
+      "handshakes": 1
     },
     "7e:91:ab:b3:c0:47": {
       "ssid": "<hidden>",
       "channel": 1,
-      "clients": {},
-      "last_seen": 1783256619.7850835,
+      "clients": {
+        "3a:6b:67:02:e8:e8": {
+          "last_seen": 1783259403.2555385,
+          "signal": -87,
+          "score": 12.99999988436699,
+          "last_attempt": 0,
+          "last_success": 0,
+          "last_recalculated": 1783259403.2555385
+        }
+      },
+      "last_seen": 1783262000.5507257,
       "handshakes": 0
     }
   }
