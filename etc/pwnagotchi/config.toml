@@ -36,7 +36,6 @@ show_interactions = true
 
 [main.plugins.auto_backup]
 enabled = true
-xy = [70, 12]
 interval = "daily"    # or "hourly", or a number (minutes)
 max_tries = 10
 backup_location = "/home/pi/"
@@ -99,7 +98,6 @@ commands = [ "tar czf /root/pwnagotchi-backup$(date +%d-%m-%Y).tar.gz {files}" ]
 
 [main.plugins.auto-update]
 enabled = true
-xy = [130, 12]
 install = true
 interval = 1
 token = "" # Create a personal access token (classic) with scope set to public_repo to use the GitHub API
@@ -190,7 +188,7 @@ enabled = false
 email = "hotloversax@gmail.com"
 dashboard = "https://www.onlinehashcrack.com/j4c7xgszdi"
 single_files = true
-main.plugins.onlinehashcrack.whitelist = [ "Lucalina", "FC:F8:AE:EC:00:86", "FRITZ!Box 7530 YX", "b4:fc:7d:6d:30:25", "FRITZ!Box 7530 YX", "38:a5:c9:18:6e:ab", "38:a5:c9:18:6e:4b", "38:a5:c9:18:73:4b", "6a:b2:68:c4:4b:dc", "0e:09:00:6a:d0:db", "44:4e:6d:b6:8e:ae", "PiZero", "6C:C7:EC:96:30:04", "Mittelbau_Schönherr_1", "d2:3b:72:0f:b3:93", "Mittelbau Schönherr_2", "aa:b7:0c:78:12:8e", "3a:46:c4:a8:ef:de", "36:b1:9d:83:16:ae"]
+whitelist = [ "Lucalina", "FC:F8:AE:EC:00:86", "FRITZ!Box 7530 YX", "b4:fc:7d:6d:30:25", "FRITZ!Box 7530 YX", "38:a5:c9:18:6e:ab", "38:a5:c9:18:6e:4b", "38:a5:c9:18:73:4b", "6a:b2:68:c4:4b:dc", "0e:09:00:6a:d0:db", "44:4e:6d:b6:8e:ae", "PiZero", "6C:C7:EC:96:30:04", "Mittelbau_Schönherr_1", "d2:3b:72:0f:b3:93", "Mittelbau Schönherr_2", "aa:b7:0c:78:12:8e", "3a:46:c4:a8:ef:de", "36:b1:9d:83:16:ae"]
 
 [main.plugins.pwndroid]
 enabled = false
@@ -237,17 +235,17 @@ api_key = "QUlEYWFhNDc5ZTMwYTY2OGQyYzJmODY1MzcwZjNmZDg0MDM6MjZkODFlZjIxMmM4YmJlZ
 cvs_dir = "/tmp" # optionnal, is set, the CVS is written to this directory
 donate = false # default: off
 timeout = 30 # default: 30
-position = [7, 95] # optionnal
+xy = [5,140]
+position = [7, 85] # optionnal
 
 [main.plugins.wpa-sec]
 enabled = true
-xy = [130, 85]
 api_key = "f8ea28a6abc0b7aa8580c839859b4128"
 api_url = "https://wpa-sec.stanev.org"
 download_results = true
 show_pwd = true
 single_files = true
-whitelist = ["FRITZ!Box 7530 YX", "44:4E:6D:B6:8E:AE", "B4:FC:7D:6D:30:24", "B4:FC:7D:6A:51:86", "44:4E:6D:B6:8E:AD", "Lucalina"]
+whitelist = ["44:4E:6D:B6:8E:AE", "44:4E:6D:B6:8E:AD", "B4:FC:7D:6D:30:24", "B4:FC:7D:6A:51:86", "Lucalina", "FRITZ!Box 7530 YX"]
 
 [main.plugins.bt-logger]
 enabled = false
@@ -258,6 +256,16 @@ face = "(B+B)"
 
 [main.plugins.neurolyzer]
 enabled = false
+wifi_interface = "wlan0"
+monitor_iface = "wlan0mon"
+operation_mode = "noided"
+mac_change_interval = 1111
+mode_label_x = 101
+mode_label_y = 50
+next_mac_change_label_x = 101
+next_mac_change_label_y = 60
+stealth_label_x = 0
+stealth_label_y = 75
 
 [main.plugins.bluetoothsniffer]
 enabled = false
@@ -408,7 +416,7 @@ webhook_url = "https://discord.com/api/webhooks/1362862850598637659/HU7ktb4QBC_2
 wigle_api_key = "QUlEYWFhNDc5ZTMwYTY2OGQyYzJmODY1MzcwZjNmZDg0MDM6MjZkODFlZjIxMmM4YmJlZDM0ZmJlOTk3MzlmMWFhMzc="
 
 [main.plugins.SATpwn]
-enabled = false
+enabled = true
 
 
 
@@ -422,6 +430,63 @@ github_repo = "git@github.com:yynowsyyy/pwnagotchi.git"
 
 
 
+[main.plugins.wiglelocator]
+enabled = true
+
+
+[main.plugins.snoopr]
+enabled = false
+base_dir = "/root/snoopr"
+aircraft_file = "/root/handshakes/skyhigh_aircraft.json"
+scan_interval = 10
+scan_duration = 5
+bluetooth_enabled = true
+bluetooth_device = "hci1"
+log_without_gps = false
+whitelist_ssids = ["FRITZ!Box 7530 YX", "44:4E:6D:B6:8E:AD", "44:4E:6D:B6:8E:AE", "B4:FC:7D:6D:30:24", "B4:FC:7D:6A:51:86", "Lucalina" ]
+whitelist_macs = []
+prune_days = 7
+mesh_enabled = false
+mesh_host = "0.0.0.0"
+mesh_port = 8888
+mesh_peers = []
+mesh_key = ""
+ui_enabled = true
+tx_power_wifi = -20
+tx_power_bt = -20
+path_loss_n_wifi = 2.7
+path_loss_n_bt = 2.7
+mse_threshold = 75
+triangulation_min_points = 8
+persistence_threshold = 0.85
+movement_threshold = 0.8
+time_threshold_minutes = 20
+update_interval = 300
+analysis_days = 7
+aircraft_high_altitude_threshold = 300
+aircraft_circling_radius = 500
+aircraft_circling_time = 120
+aircraft_rapid_descent_threshold = 3000
+aircraft_rapid_climb_threshold = 3000
+aircraft_max_speed_knots = 600
+aircraft_min_speed_knots = 50
+aircraft_enable_squawk_alerts = true
+opensky_username = ""
+opensky_password = ""
+
+# Example geofences (list of tables)
+#[main.plugins.snoopr.geofences]
+#name = "Home Zone"
+#type = "circle"
+#lat = 37.7749
+#lon = -122.4194
+#radius = 500
+
+#[[main.plugins.snoopr.geofences]]
+#name = "Restricted Area"
+#type = "polygon"
+#points = [[37.77, -122.42], [37.78, -122.41], [37.79, -122.43], [37.77, -122.42]]
+
 [main.log]
 path = "/etc/pwnagotchi/log/pwnagotchi.log"
 path-debug = "/etc/pwnagotchi/log/pwnagotchi-debug.log"
@@ -431,21 +496,11 @@ enabled = true
 size = "10M"
 
 
-
-
-
-
-
-
-
-
-
-
 [personality]
 advertise = true
 deauth = true
 associate = true
-channels = [3, 2, 11, 8, 10, 9, 4, 7, 6, 1, 5]
+channels = [6, 10, 8, 7, 9, 4, 3, 2, 1, 5, 11]
 min_rssi = -85.0
 ap_ttl = 30.0
 sta_ttl = 30.0
@@ -517,10 +572,6 @@ rotation = 0
 type = "dummydisplay"
 
 
-
-
-
-
 [bettercap]
 handshakes = "/home/pi/handshakes"
 silence = [
@@ -558,6 +609,3 @@ sync = 3600
 zram = true
 rsync = true
 
-
-[main.plugins.wiglelocator]
-enabled = true

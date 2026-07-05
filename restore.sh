@@ -1,7 +1,7 @@
 #!/bin/bash
 # ============================================
 # Pwnagotchi Restore Script
-# Generated: 2026-07-05 10:33
+# Generated: 2026-07-05 12:19
 # Source: pwnagotchi
 # ============================================
 #
