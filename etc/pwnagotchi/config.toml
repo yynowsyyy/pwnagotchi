@@ -405,6 +405,7 @@ dns = "8.8.8.8 1.1.1.1" # optional, default (google): "8.8.8.8 1.1.1.1". Conside
 [main.plugins.discord]
 enabled = true
 webhook_url = "https://discord.com/api/webhooks/1362862850598637659/HU7ktb4QBC_2T9ZoY26zrhkdQu8isPWpTB6HSAeshyA3TbcaxYu8ru90P1jY9ggcy_iR"
+wigle_api_key = "QUlEYWFhNDc5ZTMwYTY2OGQyYzJmODY1MzcwZjNmZDg0MDM6MjZkODFlZjIxMmM4YmJlZDM0ZmJlOTk3MzlmMWFhMzc="
 
 [main.plugins.SATpwn]
 enabled = false
@@ -420,6 +421,11 @@ enabled = true
 github_repo = "git@github.com:yynowsyyy/pwnagotchi.git"
 
 
+
+[main.plugins.wiglelocator]
+enabled = true
+api_key = "QUlEYWFhNDc5ZTMwYTY2OGQyYzJmODY1MzcwZjNmZDg0MDM6MjZkODFlZjIxMmM4YmJlZDM0ZmJlOTk3MzlmMWFhMzc="
+
 [main.log]
 path = "/etc/pwnagotchi/log/pwnagotchi.log"
 path-debug = "/etc/pwnagotchi/log/pwnagotchi-debug.log"
@@ -427,6 +433,7 @@ path-debug = "/etc/pwnagotchi/log/pwnagotchi-debug.log"
 [main.log.rotation]
 enabled = true
 size = "10M"
+
 
 
 
@@ -512,6 +519,7 @@ on_frame = ""
 enabled = false
 rotation = 0
 type = "dummydisplay"
+
 
 
 
