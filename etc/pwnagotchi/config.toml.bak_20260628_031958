@@ -1,0 +1,543 @@
+[main]
+name = "pwnagotchi"
+lang = "de"
+iface = "wlan0mon"
+mon_start_cmd = "/usr/bin/monstart"
+mon_stop_cmd = "/usr/bin/monstop"
+mon_max_blind_epochs = 5
+no_restart = false
+whitelist = ["FRITZ!Box 7530 YX", "44:4E:6D:B6:8E:AD", "44:4E:6D:B6:8E:AE", "B4:FC:7D:6D:30:24", "B4:FC:7D:6A:51:86", "Lucalina" ]
+confd = "/etc/pwnagotchi/conf.d/"
+custom_plugin_repos = [
+    "https://github.com/jayofelony/pwnagotchi-torch-plugins/archive/master.zip",
+ "https://github.com/tisboyo/pwnagotchi-pisugar2-plugin/archive/master.zip",
+ "https://github.com/nullm0ose/pwnagotchi-plugin-pisugar3/archive/master.zip",
+ "https://github.com/MaliosDark/pwnagotchi-plugins/archive/master.zip",
+ "https://github.com/GaelicThunder/Experience-Plugin-Pwnagotchi/archive/master.zip",
+ "https://github.com/dadav/pwnagotchi-custom-plugins/archive/master.zip",
+ "https://github.com/Teraskull/pwnagotchi-community-plugins/archive/master.zip",
+ "https://github.com/crahan/pwnagotchi-plugins/archive/master.zip",
+ "https://github.com/Terminatoror/plugins/archive/master.zip",
+    "https://github.com/Sniffleupagus/pwnagotchi_plugins/archive/master.zip",
+    "https://github.com/NeonLightning/pwny/archive/master.zip",
+    "https://github.com/marbasec/UPSLite_Plugin_1_3/archive/master.zip",
+    "https://github.com/wpa-2/Pwnagotchi-Plugins/archive/master.zip",
+    "https://github.com/cyberartemio/wardriver-pwnagotchi-plugin/archive/main.zip"
+]
+custom_plugins = "/usr/local/share/pwnagotchi/custom-plugins/"
+
+[main.plugins.auto-tune]
+enabled = true
+xy = [10, 12]
+show_hidden = true
+reset_history = true
+extra_channels = 15
+show_interactions = true
+[70, 12]
+interval = "daily"    # or "hourly", or a number (minutes)
+max_tries = 10
+backup_location = "/home/pi/"
+files = [
+  "/root/settings.yaml",
+  "/root/client_secrets.json",
+  "/root/.api-report.json",
+  "/root/.ssh",
+  "/root/.bashrc",
+  "/root/.profile",
+  "/home/pi/handshakes",
+  "/root/peers",
+  "/etc/pwnagotchi/",
+  "/usr/local/share/pwnagotchi/custom-plugins",
+  "/etc/ssh/",
+  "/home/pi/.bashrc",
+  "/home/pi/.profile",
+  "/home/pi/.wpa_sec_uploads",
+"/root/brain.nn",
+ "/root/brain.json",
+ "/root/.api-report.json",
+ "/root/handshakes/",
+ "/root/peers/",
+ "/etc/pwnagotchi/",
+ "/root/.ssh",
+ "/root/.bashrc",
+ "/root/.profile",
+ "/root/handshakes",
+ "/root/",
+ "/root/*",
+ "/root/Wall-of-Flippers/",
+ "/root/.auto-update",
+ "/root/.bt-tether*",
+ "/root/.net_pos_saved",
+ "/root/.ohc_uploads",
+ "/root/.wigle_uploads",
+ "/root/.wpa_sec_uploads",
+ "/var/log/pwnagotchi.log",
+ "/var/log/pwnagotchi*.gz",
+ "/home/pi/.ssh",
+ "/home/pi/.bashrc",
+ "/home/pi/.profile",
+ "/home/pi/logs/pwnagotchi.log",
+ "/home/pi/log/pwnagotchi.log",
+ "/usr/bin/pwnlib",
+ "/usr/local/share/pwnagotchi/custom-plugins",
+ "/usr/local/lib/python3.11/dist-packages/pwnagotchi",
+ "/usr/local/share/pwnagotchi/custom-plugins/",
+ "/usr/local/lib/python3.9/dist-packages/pwnagotchi/plugins/default/",
+ "/etc/profile/",
+ "/etc/systemd/system/wof.service",
+ "/etc/systemd/system/pwngrid-peer.service",
+ "/etc/ssh/",
+ "/boot/config.txt",
+ "/boot/cmdline.txt",
+ "/boot/"
+]
+exclude = [ "/etc/pwnagotchi/logs/*"]
+commands = [ "tar czf /root/pwnagotchi-backup$(date +%d-%m-%Y).tar.gz {files}" ]
+
+[main.plugins.auto-update]
+enabled = true
+xy = [130, 12]
+install = true
+interval = 1
+token = "" # Create a personal access token (classic) with scope set to public_repo to use the GitHub API
+
+[main.plugins.fix_services]
+enabled = true
+xy = [190, 12]
+
+[main.plugins.cache]
+enabled = false
+
+[main.plugins.gdrivesync]
+enabled = false
+backupfiles = [""]
+backup_folder = "PwnagotchiBackups"
+interval = 1
+
+[main.plugins.gpio_buttons]
+enabled = false
+
+[main.plugins.gps]
+enabled = false
+speed = 19200
+device = "/dev/ttyUSB0" # for GPSD: "localhost:2947"
+
+[main.plugins.gps_listener]
+enabled = false
+
+[main.plugins.grid]
+enabled = true
+xy = [10, 50]
+report = true
+
+[main.plugins.logtail]
+enabled = true
+xy = [70, 50]
+max-lines = 10000
+[main.plugins.ohcapi]
+enabled = true
+xy = [130, 50]
+api_key = "sk_de138d25e263ceb450fe07ac2238cc4f"
+receive_email = "yes"
+sleep = 3600
+
+[main.plugins.pwndroid]
+enabled = false
+gateway = "" # leave empty unless you need a specific gateway
+display = false # show coords on display
+display_altitude = false # show altitude on display
+
+[main.plugins.pisugarx]
+enabled = false
+rotation = false
+default_display = "percentage"
+lowpower_shutdown = true
+lowpower_shutdown_level = 10 # battery percent at which the device will turn off
+max_charge_voltage_protection = false #It will limit the battery voltage to about 80% to extend battery life
+
+[main.plugins.pwncrack]
+enabled = true
+xy = [190, 50]
+key = "618368ab-c347-4dc3-938a-b8464febf921"
+
+[main.plugins.session-stats]
+enabled = false
+save_directory = "/var/tmp/pwnagotchi/sessions/"
+
+[main.plugins.ups_hat_c]
+enabled = false
+label_on = true  # show BAT label or just percentage
+shutdown = 5  # battery percent at which the device will turn off
+bat_x_coord = 140
+bat_y_coord = 0
+
+[main.plugins.ups_lite]
+enabled = false
+shutdown = 2
+
+[main.plugins.webcfg]
+enabled = true
+xy = [70, 85][7, 85] # optionnal
+
+[main.plugins.wpa-sec]
+enabled = true
+xy = [130, 85]
+api_key = "f8ea28a6abc0b7aa8580c839859b4128"
+api_url = "https://wpa-sec.stanev.org"
+download_results = true
+show_pwd = true
+single_files = true
+whitelist = ["44:4E:6D:B6:8E:AE", "B4:FC:7D:6A:51:86", "44:4E:6D:B6:8E:AD", "B4:FC:7D:6D:30:24", "Lucalina", "FRITZ!Box 7530 YX"]
+
+[main.plugins.bt-tether_]
+enabled = true
+xy = [190, 85]
+
+[main.plugins.bt-logger]
+enabled = false
+
+[main.plugins.blemon_plugin]
+enabled = false
+face = "(B+B)"
+
+[main.plugins.neurolyzer]
+enabled = false
+
+[main.plugins.bluetoothsniffer]
+enabled = true
+xy = [10, 50]  # <-- Diese Zeile einfach laut Skript-Vorschlag ergänzen
+count_interval = 60
+bt_x_coord = 0
+bt_y_coord = 50
+devices_file = "/root/bluetooth_devices.json"
+timer = 30
+
+[main.plugins.probenpwn]
+enabled = false
+mode = "adaptive"
+# Oben links
+bt_x_coord = 0
+bt_y_coord = 45
+attacks_x_coord = 0
+attacks_y_coord = 57
+success_x_coord = 0
+success_y_coord = 69
+handshakes_x_coord = 0
+handshakes_y_coord = 81
+
+# Oben rechts
+bat_x_coord = 160
+bat_y_coord = 0
+battery_x_coord = 160
+battery_y_coord = 12
+pnp_status_x_coord = 160
+pnp_status_y_coord = 24
+mode_x_coord = 160
+mode_y_coord = 36
+
+# Mitte links
+top_channels_x_coord = 0
+top_channels_y_coord = 93
+pmf_status_x_coord = 0
+pmf_status_y_coord = 110
+success_bar_x_coord = 0
+success_bar_y_coord = 120
+
+# Mitte rechts
+attack_rate_x_coord = 350
+attack_rate_y_coord = 100
+top_targets_x_coord = 350
+top_targets_y_coord = 110
+gps_indicator_x_coord = 350
+gps_indicator_y_coord = 120
+eta_x_coord = 350
+eta_y_coord = 130
+show_attacks = true
+show_success = true
+show_handshakes = true
+show_mode = true
+show_top_channels = true
+show_pmf_status = true
+show_success_bar = true
+show_pnp_status = true
+show_attack_rate = true
+show_top_targets = true
+show_gps_indicator = true
+show_eta = true
+show_pmf_method = false
+show_ext_procs = false
+show_battery = false
+verbose = true
+enable_5ghz = true
+enable_6ghz = true
+max_retries = 5
+env_check_interval = 3
+min_recon_time = 2
+max_recon_time = 30
+min_ap_ttl = 30
+max_ap_ttl = 300
+min_sta_ttl = 30
+max_sta_ttl = 300
+min_deauth_prob = 0.9
+max_deauth_prob = 1
+min_assoc_prob = 0.9
+max_assoc_prob = 1
+min_min_rssi = -85
+max_min_rssi = -60
+min_throttle_a = 0.1
+max_throttle_a = 0.2
+min_throttle_d = 0.1
+max_throttle_d = 0.2
+pmf_bypass_methods = ["bad_msg", "assoc_sleep", "rsn_corrupt", "frag"]
+use_external_tools = false
+enable_pmkid_attack = true
+enable_auth_harvest = true
+enable_reassociation = true
+enable_rsn_probe = true
+pin_save_path = "/root/handshakespin/"
+mac_randomization = true
+dry_run = false
+low_battery_threshold = 15
+high_cpu_threshold = 80
+upload_url = "https://your-upload-endpoint.com"
+upload_interval = 3600
+enable_wpa3_downgrade = true
+enable_ft_handshake = true
+enable_sae_capture = false
+enable_tdls = false
+enable_mesh = false
+enable_wps = true
+enable_eapol_start = true
+enable_eapol_logoff = true
+enable_disassociation = true
+enable_null_data = true
+enable_csa = false
+enable_beacon_flood = false
+enable_probe_response_flood = false
+enable_auth_flood = false
+enable_assoc_flood = false
+enable_ps_poll = true
+enable_cf_end = false
+enable_mimo = false
+rate_limit_refill_rate = 0.5
+rate_limit_max_tokens = 10
+blacklist_path = "/root/handshakes/probenpwn_blacklist.json"
+log_path = "/root/handshakes/probenpwn_captures.jsonl"
+log_max_bytes = 10485760
+log_backup_count = 3
+state_path = "/root/handshakes/probenpwn_state.json"
+
+[main.plugins.tweak_view]
+enabled = true
+xy = [70, 112]
+
+[main.plugins.my-bt-logger]
+enabled = false
+
+[main.plugins."bt-tether.py"]
+enabled = false
+
+[main.plugins."bt-tether_.py"]
+enabled = false
+
+
+
+[main.plugins.pwnstore_ui]
+enabled = true
+xy = [10, 50]  # <-- Diese Zeile einfach laut Skript-Vorschlag ergänzen
+
+[main.plugins.bt-tether]
+enabled = false
+phone-name = "" # name as shown on the phone i.e. "Pwnagotchi's Phone"
+mac = "34:79:16:3F:FD:0F"
+phone = "" # android or ios
+ip = "" # optional, default : 192.168.44.2 if android or 172.20.10.2 if ios
+gateway = "" #optional, default : 192.168.44.1 if android or 172.20.10.2 if ios
+dns = "8.8.8.8 1.1.1.1" # optional, default (google): "8.8.8.8 1.1.1.1". Consider using anonymous DNS like OpenNic :-)
+
+
+[main.log]
+path = "/etc/pwnagotchi/log/pwnagotchi.log"
+path-debug = "/etc/pwnagotchi/log/pwnagotchi-debug.log"
+
+[main.log.rotation]
+enabled = true
+size = "10M"
+
+
+
+
+
+
+[personality]
+advertise = true
+deauth = true
+associate = true
+channels = [1, 3, 6, 7, 8, 11, 1, 5, 3, 11, 10, 8, 6, 7, 4, 9, 2]
+min_rssi = -85.0
+ap_ttl = 30.0
+sta_ttl = 30.0
+recon_time = 2.0
+max_inactive_scale = 2
+recon_inactive_multiplier = 2
+hop_recon_time = 10
+min_recon_time = 5
+max_interactions = 3
+max_misses_for_recon = 5
+excited_num_epochs = 10
+bored_num_epochs = 15
+sad_num_epochs = 25
+bond_encounters_factor = 20000
+throttle_a = 0.2
+throttle_d = 0.2
+deauth_prob = 0.9
+assoc_prob = 0.9
+
+[ui]
+invert = true # false = black background, true = white background
+cursor = true
+fps = 0.0
+
+[ui.font]
+name = "DejaVuSansMono" # for japanese: fonts-japanese-gothic
+size_offset = 0 # will be added to the font size
+
+[ui.faces]
+look_r = ["( ⚆_⚆)"]
+look_l = ["(☉_☉ )"]
+look_r_happy = ["( ◕‿◕)", "( ≧◡≦)"]
+look_l_happy = ["(◕‿◕ )", "(≧◡≦ )"]
+sleep = ["(⇀‿‿↼)", "(≖‿‿≖)", "(－_－)"]
+awake = ["(◕‿‿◕)"]
+bored = ["(-__-)", "(—__—)"]
+intense = ["(°▃▃°)", "(°ロ°)"]
+cool = ["(⌐■_■)", "(단__단)"]
+happy = ["(•‿‿•)", "(^‿‿^)", "(^◡◡^)"]
+excited = ["(ᵔ◡◡ᵔ)", "(✜‿‿✜)"]
+grateful = ["(^‿‿^)"]
+motivated = ["(☼‿‿☼)"]
+demotivated = ["(≖__≖)"]
+smart = ["(✜‿‿✜)"]
+lonely = ["(ب__ب)"]
+sad = ["(╥☁╥ )"]
+angry = ["(-_-')", "(⇀__⇀)", "(`___´)"]
+friend = ["(♥‿‿♥)", "(♡‿‿♡)", "(♥‿♥ )", "(♥ω♥ )"]
+broken = ["(☓‿‿☓)"]
+debug = ["(#__#)"]
+upload = ["(1__0)", "(1__1)", "(0__1)"]
+png = false
+position_x = 0
+position_y = 34
+
+[ui.web]
+enabled = true
+address = "::" # listening on both ipv4 and ipv6 - switch to 0.0.0.0 to listen on just ipv4
+auth = false
+username = "changeme" # if auth is true
+password = "changeme" # if auth is true
+origin = ""
+port = 8080
+on_frame = ""
+
+[ui.display]
+enabled = false
+rotation = 0
+type = "dummydisplay"
+
+
+
+
+
+
+[bettercap]
+handshakes = "/home/pi/handshakes"
+silence = [
+    "ble.device.new",
+    "ble.device.lost",
+    "ble.device.service.discovered",
+    "ble.device.characteristic.discovered",
+    "ble.device.disconnected",
+    "ble.device.connected",
+    "ble.connection.timeout",
+    "wifi.client.new",
+    "wifi.client.lost",
+    "wifi.client.probe",
+    "wifi.ap.new",
+    "wifi.ap.lost",
+    "mod.started"
+]
+
+[fs.memory]
+enabled = true
+
+[fs.memory.mounts.log]
+enabled = true
+mount = "/etc/pwnagotchi/log/"
+size = "50M"
+sync = 60
+zram = true
+rsync = true
+
+[fs.memory.mounts.data]
+enabled = true
+mount = "/var/tmp/pwnagotchi"
+size = "10M"
+sync = 3600
+zram = true
+rsync = true
+
+
+[main.plugins.TweakViewDrag]
+enabled = true
+xy = [10, 50]  # <-- Diese Zeile einfach laut Skript-Vorschlag ergänzen
+
+[main.plugins.snoopr]
+enabled = false
+ui_enabled = true
+path = "/etc/pwnagotchi/custom-plugins"
+prune_days = 30
+persistence_threshold = 3
+bt_scan_interval = 10
+aircraft_update_interval = 30
+
+[main.plugins.skyhigh]
+enabled = false
+latitude = __latitude__
+longitude = __longitude__
+radius = __radius__
+update_interval = 60
+
+[main.plugins.ups_hat]
+enabled = false
+shutdown = 5
+label_on = true
+
+[main.plugins.sorted-password-list]
+enabled = false
+
+[main.plugins.display_settings]
+enabled = false
+
+[main.plugins.webgpsmap]
+enabled = false
+
+[main.plugins.memtemp]
+enabled = false
+scale = "celsius"
+x = 160
+y = 0
+
+[main.plugins.auto_backup]
+enabled = false
+interval = __interval__
+max_tries = 0
+handshakes = __handshakes__
+
+[main.plugins.wigle]
+enabled = false
+api_key = "__api_key__"
+donate = __donate__
+
+[main.plugins.discord]
+enabled = false
+webhook_url = ""
