@@ -236,7 +236,6 @@ cvs_dir = "/tmp" # optionnal, is set, the CVS is written to this directory
 donate = false # default: off
 timeout = 30 # default: 30
 xy = [5,140]
-position = [7, 85] # optionnal
 
 [main.plugins.wpa-sec]
 enabled = true
@@ -573,7 +572,7 @@ port = 8080
 on_frame = ""
 
 [ui.display]
-enabled = false
+enabled = true
 rotation = 0
 type = "dummydisplay"
 
