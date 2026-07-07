@@ -1,7 +1,7 @@
 {
   "plugin_metadata": {
     "current_mode": "auto",
-    "last_saved": 1783380479.577778,
+    "last_saved": 1783390840.9863899,
     "version": "88.0.5",
     "stationary_start": 1783377760.657801,
     "plugin_enabled": true,
@@ -14,22 +14,22 @@
       "channel": 1,
       "clients": {
         "e0:91:53:b8:80:53": {
-          "last_seen": 1783380215.4205256,
-          "signal": -81,
-          "score": 18.999999867677687,
-          "last_attempt": 1783380097.2564385,
+          "last_seen": 1783390832.3100936,
+          "signal": -76,
+          "score": 23.999999891652003,
+          "last_attempt": 1783390832.3100936,
           "last_success": 1783365158.6181152,
-          "last_recalculated": 1783380215.4205256
+          "last_recalculated": 1783390832.3100936
         }
       },
-      "last_seen": 1783380456.182656,
+      "last_seen": 1783390832.3100936,
       "handshakes": 3
     },
     "08:40:f3:8f:84:c4": {
       "ssid": "<hidden>",
       "channel": 4,
       "clients": {},
-      "last_seen": 1783380456.182656,
+      "last_seen": 1783390832.3100936,
       "handshakes": 0
     },
     "08:40:f3:8f:84:c6": {
@@ -53,14 +53,14 @@
           "last_recalculated": 1783380315.6505585
         }
       },
-      "last_seen": 1783380456.182656,
+      "last_seen": 1783390832.3100936,
       "handshakes": 3
     },
     "60:32:b1:77:6c:70": {
       "ssid": "X",
       "channel": 6,
       "clients": {},
-      "last_seen": 1783380456.182656,
+      "last_seen": 1783390832.3100936,
       "handshakes": 0
     },
     "b4:fc:7d:9f:94:ba": {
@@ -68,15 +68,15 @@
       "channel": 6,
       "clients": {
         "20:ba:36:84:3e:cc": {
-          "last_seen": 1783365555.3217244,
-          "signal": -67,
-          "score": 32.99999912659327,
-          "last_attempt": 1783365535.78078,
+          "last_seen": 1783390559.3769238,
+          "signal": -75,
+          "score": 24.99999978939692,
+          "last_attempt": 1783390559.3769238,
           "last_success": 0,
-          "last_recalculated": 1783365535.78078
+          "last_recalculated": 1783390559.3769238
         }
       },
-      "last_seen": 1783380456.182656,
+      "last_seen": 1783390832.3100936,
       "handshakes": 0
     },
     "58:d9:d5:5e:d9:86": {
@@ -84,22 +84,22 @@
       "channel": 11,
       "clients": {
         "e2:b0:92:36:77:b6": {
-          "last_seen": 1783380456.182656,
-          "signal": -79,
-          "score": 15.999999768204159,
-          "last_attempt": 1783307742.6613133,
-          "last_success": 1783306699.3991897,
-          "last_recalculated": 1783380432.857254
+          "last_seen": 1783390832.3100936,
+          "signal": -80,
+          "score": 19.99998018834326,
+          "last_attempt": 1783386060.026276,
+          "last_success": 1783384387.4124658,
+          "last_recalculated": 1783390832.3100936
         }
       },
-      "last_seen": 1783380456.182656,
-      "handshakes": 2
+      "last_seen": 1783390832.3100936,
+      "handshakes": 3
     },
     "58:d9:d5:5e:d9:84": {
       "ssid": "<hidden>",
       "channel": 11,
       "clients": {},
-      "last_seen": 1783380456.182656,
+      "last_seen": 1783390832.3100936,
       "handshakes": 0
     },
     "c8:0e:14:e9:9c:3c": {
@@ -107,12 +107,12 @@
       "channel": 6,
       "clients": {
         "e0:91:53:b8:80:53": {
-          "last_seen": 1783380276.395977,
+          "last_seen": 1783384411.0634074,
           "signal": -77,
-          "score": 22.999999678929647,
-          "last_attempt": 1783380276.395977,
+          "score": 22.999999819993974,
+          "last_attempt": 1783384411.0634074,
           "last_success": 1783306784.990252,
-          "last_recalculated": 1783380276.395977
+          "last_recalculated": 1783384411.0634074
         },
         "c0:f8:53:81:fd:92": {
           "last_seen": 1783364618.0555072,
@@ -123,37 +123,45 @@
           "last_recalculated": 1783364618.0555072
         },
         "c0:f8:53:81:fa:ac": {
-          "last_seen": 1783365709.6420524,
-          "signal": -85,
-          "score": 14.999999812311597,
+          "last_seen": 1783389604.085729,
+          "signal": -91,
+          "score": 8.999999815622965,
           "last_attempt": 0,
           "last_success": 0,
-          "last_recalculated": 1783365709.6420524
+          "last_recalculated": 1783389604.085729
         },
         "c0:f8:53:81:fc:bc": {
-          "last_seen": 1783365500.9842706,
-          "signal": -87,
-          "score": 12.9999998693996,
+          "last_seen": 1783390508.665931,
+          "signal": -85,
+          "score": 14.99999980158276,
           "last_attempt": 0,
           "last_success": 0,
-          "last_recalculated": 1783365500.9842706
+          "last_recalculated": 1783390508.665931
+        },
+        "5c:47:5e:b0:62:c8": {
+          "last_seen": 1783388113.4486437,
+          "signal": -88,
+          "score": 11.999999806218677,
+          "last_attempt": 0,
+          "last_success": 0,
+          "last_recalculated": 1783388113.4486437
         }
       },
-      "last_seen": 1783380456.182656,
+      "last_seen": 1783390832.3100936,
       "handshakes": 3
     },
     "62:dc:81:c9:6d:08": {
       "ssid": "phi_601456CBA5C3",
       "channel": 11,
       "clients": {},
-      "last_seen": 1783380456.182656,
+      "last_seen": 1783390832.3100936,
       "handshakes": 0
     },
     "5c:fa:25:91:87:ce": {
       "ssid": "MagentaWLAN-BGRQ",
       "channel": 1,
       "clients": {},
-      "last_seen": 1783380432.857254,
+      "last_seen": 1783390832.3100936,
       "handshakes": 1
     },
     "30:d3:2d:7e:2e:58": {
@@ -167,7 +175,7 @@
       "ssid": "Wirtshaus 2",
       "channel": 1,
       "clients": {},
-      "last_seen": 1783380456.182656,
+      "last_seen": 1783387472.150702,
       "handshakes": 2
     },
     "14:9d:09:1f:98:b8": {
@@ -179,9 +187,9 @@
     },
     "7e:91:ab:b3:c0:47": {
       "ssid": "<hidden>",
-      "channel": 11,
+      "channel": 1,
       "clients": {},
-      "last_seen": 1783365709.6420524,
+      "last_seen": 1783387569.2099988,
       "handshakes": 0
     },
     "bc:30:d9:93:bb:7a": {
