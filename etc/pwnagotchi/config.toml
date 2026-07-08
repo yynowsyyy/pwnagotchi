@@ -128,8 +128,8 @@ api_key = "QUlEYWFhNDc5ZTMwYTY2OGQyYzJmODY1MzcwZjNmZDg0MDM6MjZkODFlZjIxMmM4YmJlZ
 cvs_dir = "/tmp"
 donate = false
 timeout = 30
-xy = [5, 160]
-position = [5, 90]
+xy = [240,320]
+position = [240,320]
 
 [main.plugins.wpa-sec]
 enabled = true
