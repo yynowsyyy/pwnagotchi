@@ -120,7 +120,7 @@ shutdown = 2
 enabled = true
 
 [main.plugins.webgpsmap]
-enabled = true
+enabled = false
 
 [main.plugins.wigle]
 enabled = true
@@ -138,7 +138,7 @@ api_url = "https://wpa-sec.stanev.org"
 download_results = true
 show_pwd = true
 single_files = true
-whitelist = ["44:4E:6D:B6:8E:AE", "44:4E:6D:B6:8E:AD", "B4:FC:7D:6A:51:86", "B4:FC:7D:6D:30:24", "FRITZ!Box 7530 YX", "Lucalina"]
+whitelist = ["Lucalina", "44:4E:6D:B6:8E:AD", "B4:FC:7D:6D:30:24", "FRITZ!Box 7530 YX", "44:4E:6D:B6:8E:AE", "B4:FC:7D:6A:51:86"]
 
 [main.plugins.bt-logger]
 enabled = false
@@ -300,7 +300,7 @@ webhook_url = "https://discord.com/api/webhooks/1362862850598637659/HU7ktb4QBC_2
 wigle_api_key = "QUlEYWFhNDc5ZTMwYTY2OGQyYzJmODY1MzcwZjNmZDg0MDM6MjZkODFlZjIxMmM4YmJlZDM0ZmJlOTk3MzlmMWFhMzc="
 
 [main.plugins.SATpwn]
-enabled = true
+enabled = false
 
 [main.plugins.triplegeo]
 enabled = true
@@ -354,6 +354,7 @@ opensky_username = ""
 opensky_password = ""
 
 
+
 [main.plugin.layout_tweaker]
 enabled = true
 
@@ -366,11 +367,12 @@ enabled = true
 size = "10M"
 
 
+
 [personality]
 advertise = true
 deauth = true
 associate = true
-channels = [1, 6, 10, 11, 6, 3, 4, 5, 8, 1, 9, 7, 11, 2, 10]
+channels = [1, 6, 7, 11, 6, 11, 9, 10, 4, 5, 1, 2, 3, 7, 8]
 min_rssi = -85
 ap_ttl = 30
 sta_ttl = 30
@@ -442,6 +444,7 @@ rotation = 0
 type = "dummydisplay"
 
 
+
 [bettercap]
 handshakes = "/home/pi/handshakes"
 silence = ["ble.device.new", "ble.device.lost", "ble.device.service.discovered", "ble.device.characteristic.discovered", "ble.device.disconnected", "ble.device.connected", "ble.connection.timeout", "wifi.client.new", "wifi.client.lost", "wifi.client.probe", "wifi.ap.new", "wifi.ap.lost", "mod.started"]
@@ -464,3 +467,15 @@ size = "10M"
 sync = 3600
 zram = true
 rsync = true
+
+[main.plugins.sorted_pwn]
+enabled = true
+
+[main.plugins.wardriver]
+enabled = true
+
+[main.plugins.sorted-password-list]
+enabled = true
+
+[main.plugins.display-password]
+enabled = true
