@@ -1,7 +1,7 @@
 {
   "plugin_metadata": {
     "current_mode": "strict",
-    "last_saved": 1783548077.9830894,
+    "last_saved": 1783602258.695336,
     "version": "88.0.5",
     "stationary_start": null,
     "plugin_enabled": true,
@@ -13,7 +13,7 @@
       "ssid": "<hidden>",
       "channel": 10,
       "clients": {},
-      "last_seen": 1783548070.0443032,
+      "last_seen": 1783548253.083063,
       "handshakes": 0
     },
     "58:d9:d5:5e:d9:86": {
@@ -21,15 +21,15 @@
       "channel": 10,
       "clients": {
         "4a:db:b4:ff:53:16": {
-          "last_seen": 1783548070.0443032,
-          "signal": -69,
-          "score": 30.999999722242354,
-          "last_attempt": 1783548055.2956722,
+          "last_seen": 1783548231.1508749,
+          "signal": -77,
+          "score": 22.999964311387803,
+          "last_attempt": 1783548211.1483397,
           "last_success": 0,
-          "last_recalculated": 1783548055.2956722
+          "last_recalculated": 1783548211.1483397
         }
       },
-      "last_seen": 1783548070.0443032,
+      "last_seen": 1783548253.083063,
       "handshakes": 1
     },
     "08:40:f3:8f:84:c6": {
@@ -43,24 +43,16 @@
           "last_attempt": 1783529540.767522,
           "last_success": 1783520062.0496478,
           "last_recalculated": 1783529604.9921522
-        },
-        "08:91:a3:ad:cd:ed": {
-          "last_seen": 1783481422.6476731,
-          "signal": -59,
-          "score": 40.99999982502725,
-          "last_attempt": 1783481365.220449,
-          "last_success": 0,
-          "last_recalculated": 1783481422.6476731
         }
       },
-      "last_seen": 1783548070.0443032,
+      "last_seen": 1783548253.083063,
       "handshakes": 2
     },
     "08:40:f3:8f:84:c4": {
       "ssid": "<hidden>",
       "channel": 3,
       "clients": {},
-      "last_seen": 1783548070.0443032,
+      "last_seen": 1783548253.083063,
       "handshakes": 0
     },
     "62:dc:81:c9:6d:08": {
@@ -76,29 +68,13 @@
           "last_recalculated": 1783540623.086354
         }
       },
-      "last_seen": 1783548070.0443032,
+      "last_seen": 1783548253.083063,
       "handshakes": 2
     },
     "b4:fc:7d:64:99:64": {
       "ssid": "FRITZ!Box 7490",
       "channel": 6,
       "clients": {
-        "c0:f8:53:81:fd:92": {
-          "last_seen": 1783481982.0555446,
-          "signal": -89,
-          "score": 10.999999738931656,
-          "last_attempt": 0,
-          "last_success": 0,
-          "last_recalculated": 1783481959.3064687
-        },
-        "e0:91:53:b8:80:53": {
-          "last_seen": 1783478843.7058687,
-          "signal": -86,
-          "score": 13.999999726083544,
-          "last_attempt": 0,
-          "last_success": 0,
-          "last_recalculated": 1783478843.7058687
-        },
         "90:48:6c:7f:aa:59": {
           "last_seen": 1783547472.0577295,
           "signal": -98,
@@ -116,7 +92,7 @@
           "last_recalculated": 1783543793.7578
         }
       },
-      "last_seen": 1783548070.0443032,
+      "last_seen": 1783548253.083063,
       "handshakes": 2
     },
     "c8:0e:14:e9:9c:3c": {
@@ -132,12 +108,12 @@
           "last_recalculated": 1783547978.6701968
         },
         "c0:f8:53:81:fa:ac": {
-          "last_seen": 1783547919.6510363,
-          "signal": -90,
-          "score": 9.999999881717894,
+          "last_seen": 1783548097.0152595,
+          "signal": -87,
+          "score": 12.999999786218007,
           "last_attempt": 0,
           "last_success": 0,
-          "last_recalculated": 1783547903.8847015
+          "last_recalculated": 1783548097.0152595
         },
         "c0:f8:53:81:fc:bc": {
           "last_seen": 1783547919.6510363,
@@ -164,22 +140,22 @@
           "last_recalculated": 1783547641.9781148
         },
         "ac:9f:c3:8d:11:4c": {
-          "last_seen": 1783543523.2431657,
-          "signal": -95,
-          "score": 4.999999720520443,
+          "last_seen": 1783548231.1508749,
+          "signal": -97,
+          "score": 2.99999988105562,
           "last_attempt": 0,
           "last_success": 0,
-          "last_recalculated": 1783543507.929659
+          "last_recalculated": 1783548231.1508749
         }
       },
-      "last_seen": 1783548070.0443032,
+      "last_seen": 1783548253.083063,
       "handshakes": 5
     },
     "60:32:b1:77:6c:70": {
       "ssid": "X",
       "channel": 6,
       "clients": {},
-      "last_seen": 1783548070.0443032,
+      "last_seen": 1783548253.083063,
       "handshakes": 0
     },
     "5c:fa:25:91:87:ce": {
@@ -211,7 +187,7 @@
           "last_recalculated": 1783548039.9091735
         }
       },
-      "last_seen": 1783548070.0443032,
+      "last_seen": 1783548253.083063,
       "handshakes": 3
     },
     "b4:fc:7d:9f:94:ba": {
@@ -243,7 +219,7 @@
           "last_recalculated": 1783525696.8526974
         }
       },
-      "last_seen": 1783548070.0443032,
+      "last_seen": 1783548253.083063,
       "handshakes": 2
     },
     "2c:91:ab:b3:c0:47": {
