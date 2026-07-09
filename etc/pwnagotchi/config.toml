@@ -138,7 +138,7 @@ api_url = "https://wpa-sec.stanev.org"
 download_results = true
 show_pwd = true
 single_files = true
-whitelist = ["Lucalina", "44:4E:6D:B6:8E:AD", "B4:FC:7D:6D:30:24", "FRITZ!Box 7530 YX", "44:4E:6D:B6:8E:AE", "B4:FC:7D:6A:51:86"]
+whitelist = ["Lucalina", "44:4E:6D:B6:8E:AE", "B4:FC:7D:6D:30:24", "B4:FC:7D:6A:51:86", "FRITZ!Box 7530 YX", "44:4E:6D:B6:8E:AD"]
 
 [main.plugins.bt-logger]
 enabled = false
@@ -148,7 +148,7 @@ enabled = false
 face = "(B+B)"
 
 [main.plugins.neurolyzer]
-enabled = false
+enabled = true
 wifi_interface = "wlan0"
 monitor_iface = "wlan0mon"
 operation_mode = "noided"
@@ -355,8 +355,31 @@ opensky_password = ""
 
 
 
+[main.plugins.sorted_pwn]
+enabled = true
+
+[main.plugins.wardriver]
+enabled = true
+path = "/root/wardriver"
+wigle_enabled = true
+wigle.api_key = "QUlEYWFhNDc5ZTMwYTY2OGQyYzJmODY1MzcwZjNmZDg0MDM6MjZkODFlZjIxMmM4YmJlZDM0ZmJlOTk3MzlmMWFhMzc="
+
+[main.plugins.wardriver.ui]
+icon = true
+position.x = 7
+position.y = 95
+
+
+[main.plugins.sorted-password-list]
+enabled = true
+
+[main.plugins.display-password]
+enabled = true
+demo = false
+
 [main.plugin.layout_tweaker]
 enabled = true
+
 
 [main.log]
 path = "/etc/pwnagotchi/log/pwnagotchi.log"
@@ -368,11 +391,12 @@ size = "10M"
 
 
 
+
 [personality]
 advertise = true
 deauth = true
 associate = true
-channels = [1, 6, 7, 11, 6, 11, 9, 10, 4, 5, 1, 2, 3, 7, 8]
+channels = [1, 3, 6, 9, 11, 2, 10, 9, 8, 3, 7, 5, 4, 11, 6, 1]
 min_rssi = -85
 ap_ttl = 30
 sta_ttl = 30
@@ -445,6 +469,7 @@ type = "dummydisplay"
 
 
 
+
 [bettercap]
 handshakes = "/home/pi/handshakes"
 silence = ["ble.device.new", "ble.device.lost", "ble.device.service.discovered", "ble.device.characteristic.discovered", "ble.device.disconnected", "ble.device.connected", "ble.connection.timeout", "wifi.client.new", "wifi.client.lost", "wifi.client.probe", "wifi.ap.new", "wifi.ap.lost", "mod.started"]
@@ -468,14 +493,3 @@ sync = 3600
 zram = true
 rsync = true
 
-[main.plugins.sorted_pwn]
-enabled = true
-
-[main.plugins.wardriver]
-enabled = true
-
-[main.plugins.sorted-password-list]
-enabled = true
-
-[main.plugins.display-password]
-enabled = true
