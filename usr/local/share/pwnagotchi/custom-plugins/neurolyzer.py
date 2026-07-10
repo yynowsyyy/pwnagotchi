@@ -63,11 +63,11 @@ class Neurolyzer(plugins.Plugin):
         self.has_macchanger = False
 
         self.ui_config = {
-            'mode': (0, 0),
-            'mac_timer': (0, 10),
-            'tx_power': (0, 20),
-            'channel': (0, 30),
-            'stealth': (0, 40)
+            'mode': (0, 20),
+            'mac_timer': (0, 35),
+            'tx_power': (0, 50),
+            'channel': (0, 65),
+            'stealth': (240, 80)
         }
 
     # -------------------------------------------------------------------------

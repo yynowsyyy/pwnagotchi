@@ -6,7 +6,7 @@
     "VSS.bt-status.label_spacing": 15,
     "VSS.bt-status.text_font": "Small",
     "VSS.bt-detail.xy": "5,320",
-    "VSS.git_backup.xy": "445,345",
+    "VSS.git_backup.xy": "420,345",
     "VSS.channel.label_font": "Small",
     "VSS.channel.text_font": "Small",
     "VSS.aps.label_font": "Small",
@@ -23,5 +23,15 @@
     "VSS.uptime.xy": "360,0",
     "VSS.friend_name.font": "Small",
     "VSS.status.xy": "5,120",
-    "VSS.bt-detail.label_spacing": 0
+    "VSS.bt-detail.label_spacing": 0,
+    "VSS.neuro_mode.xy": "240,95",
+    "VSS.neuro_mac.label_spacing": 15,
+    "VSS.neuro_mac.xy": "240,15",
+    "VSS.neuro_tx.label_spacing": 15,
+    "VSS.neuro_tx.xy": "240,35",
+    "VSS.neuro_chan.label_spacing": 15,
+    "VSS.neuro_chan.xy": "240,55",
+    "VSS.neuro_stealth.label_spacing": 15,
+    "VSS.neuro_stealth.xy": "240,75",
+    "VSS.display-password.xy": "5,100"
 }
